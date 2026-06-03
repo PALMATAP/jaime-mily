@@ -5,559 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agustín & Mirian - Nuestra Boda</title>
     
-    <!-- Fuentes Premium y Google Icons -->
+    <!-- Fuentes Premium de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-    <style>
-        /* --- PALETA OLIVA Y CHAMPAGNE --- */
-        :root {
-            --color-principal: #3a4d28; /* Verde Oliva Oscuro de Alto Contraste */
-            --color-secundario: #7a8462; /* Verde Hoja Seca */
-            --color-fondo: #fdfdfb; /* Fondo Crema Claro Alabastro */
-            --color-dorado: #bfa15f; /* Oro Viejo / Champagne */
-            --texto-oscuro: #1a1a1a; /* Contraste máximo para legibilidad */
-            --texto-claro: #ffffff;
-            --fuente-titulos: 'Cormorant Garamond', serif;
-            --fuente-manuscrita: 'Alex Brush', cursive;
-            --fuente-cuerpo: 'Montserrat', sans-serif;
-        }
-
-        /* --- ESTILOS BASE --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--fuente-cuerpo);
-            background-color: var(--color-fondo);
-            color: var(--texto-oscuro);
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        section {
-            padding: 100px 20px;
-            position: relative;
-        }
-
-        h2 {
-            font-family: var(--fuente-titulos);
-            font-size: 3rem;
-            font-weight: 300;
-            color: var(--color-principal);
-            letter-spacing: 4px;
-        }
-
-        p {
-            font-size: 1.05rem;
-            font-weight: 300;
-            max-width: 580px;
-            margin: 0 auto 15px auto;
-            color: #2c2c2c;
-        }
-
-        /* --- DECORACIONES VECTORIALES ORNAMENTALES --- */
-        .adorno-floral {
-            font-family: var(--fuente-manuscrita);
-            font-size: 3.5rem;
-            color: var(--color-dorado);
-            line-height: 1;
-            margin: 10px auto 25px auto;
-            display: block;
-            user-select: none;
-        }
-
-        /* Marco de línea fina estilo tarjetería */
-        .marco-nupcial {
-            border: 1px solid var(--color-dorado);
-            padding: 10px;
-            margin: 20px auto;
-            display: inline-block;
-            position: relative;
-        }
-        .marco-nupcial::before {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px; right: -5px; bottom: -5px;
-            border: 1px solid rgba(191, 161, 95, 0.3);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--color-principal);
-            color: var(--texto-claro);
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 0; /* Estilo clásico corte recto */
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 400;
-            margin-top: 20px;
-            border: 1px solid var(--color-principal);
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--color-principal);
-            transform: translateY(-2px);
-        }
-
-        /* --- 1. PORTADA ORNAMENTAL --- */
-        .portada {
-            height: 100vh;
-            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.2)), 
-                        url('https://lh3.googleusercontent.com/d/1IuD4lf6eAdea-aBjAUxAYDptXkFpNUGS') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--texto-claro);
-        }
-
-        .portada .marco-interno {
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 40px 30px;
-            max-width: 90%;
-            background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(2px);
-        }
-
-        .portada h1 {
-            font-family: var(--fuente-titulos);
-            font-size: 4.8rem;
-            font-weight: 300;
-            color: var(--texto-claro);
-            line-height: 1.1;
-        }
-
-        .portada .ampersand {
-            font-family: var(--fuente-manuscrita);
-            font-size: 4.5rem;
-            color: var(--color-dorado);
-            display: block;
-            margin: -10px 0;
-        }
-
-        .portada .fecha {
-            font-size: 1.3rem;
-            letter-spacing: 5px;
-            border-top: 1px solid var(--color-dorado);
-            border-bottom: 1px solid var(--color-dorado);
-            padding: 8px 25px;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        /* --- 2. SECCIÓN HISTORIA Y CONTADOR --- */
-        .historia-foto {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            margin: 0 auto 25px auto;
-            background: url('https://lh3.googleusercontent.com/d/1IDRbAhVbwe6J_CLx1PbfZgXIk1diQsza') no-repeat center center/cover;
-            border: 3px solid var(--color-dorado);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .contador-seccion {
-            background-color: #f7f6f2;
-            border-top: 1px solid #eae7df;
-            border-bottom: 1px solid #eae7df;
-        }
-
-        .reloj {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            max-width: 650px;
-            margin: 30px auto 0 auto;
-        }
-
-        .bloque-tiempo {
-            position: relative;
-            min-width: 90px;
-        }
-
-        .bloque-tiempo span {
-            display: block;
-            font-size: 3rem;
-            font-family: var(--fuente-titulos);
-            color: var(--color-principal);
-            font-weight: 300;
-            line-height: 1;
-        }
-
-        .bloque-tiempo .etiqueta {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #555;
-            margin-top: 10px;
-            font-weight: 400;
-        }
-
-        .bloque-tiempo:not(:last-child)::after {
-            content: '•';
-            position: absolute;
-            right: -15px;
-            top: 10px;
-            color: var(--color-dorado);
-            font-size: 1.5rem;
-        }
-
-        /* --- 3. UBICACIÓN ELEGANTE --- */
-        .bloque-lugar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border: 1px solid #ebdcb9;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.03);
-        }
-
-        .imagen-lugar-banner {
-            width: 100%;
-            height: 300px;
-            background: url('https://lh3.googleusercontent.com/d/1hMJhq9adiab4b8KoAHim4Au88faIteyj') no-repeat center center/cover;
-        }
-
-        .contenido-lugar {
-            padding: 50px 40px;
-        }
-
-        .iconos-premium {
-            font-size: 2.5rem;
-            color: var(--color-dorado);
-            margin-bottom: 15px;
-        }
-
-        .mapa-recuadro {
-            width: 100%;
-            height: 280px;
-            border-top: 1px solid #f0ede5;
-        }
-
-        /* --- 4. CRONOGRAMA ARTÍSTICO --- */
-        .itinerario-seccion {
-            background-color: #faf9f5;
-        }
-
-        .anillos-cabecera {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px auto;
-            background: url('https://lh3.googleusercontent.com/d/1uWXlDjyxg2wikofdshT2XdFBtHtJsQ_F') no-repeat center center/cover;
-            border-radius: 50%;
-            border: 1px solid var(--color-dorado);
-        }
-
-        .linea-tiempo-completa {
-            max-width: 600px;
-            margin: 50px auto 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            position: relative;
-        }
-
-        .nodo-itinerario {
-            background: white;
-            padding: 25px;
-            border-left: 3px solid var(--color-principal);
-            text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nodo-itinerario .icon-box {
-            color: var(--color-dorado);
-            font-size: 2rem;
-        }
-
-        .nodo-texto h4 {
-            font-family: var(--fuente-titulos);
-            font-size: 1.4rem;
-            color: var(--color-principal);
-            font-weight: 500;
-        }
-
-        .nodo-texto p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* --- 5. DETALLES DE ETIQUETA Y REGALOS --- */
-        .tarjeta-detalles-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 800px;
-            margin: 40px auto 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .tarjeta-detalles-container { grid-template-columns: 1fr; }
-            .reloj { gap: 10px; }
-            .bloque-tiempo { min-width: 65px; }
-            .bloque-tiempo span { font-size: 2.2rem; }
-            .bloque-tiempo:not(:last-child)::after { display: none; }
-        }
-
-        .tarjeta-detalle-premium {
-            background: white;
-            border: 1px solid #eae6dc;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-        }
-
-        .tarjeta-detalle-premium:hover {
-            border-color: var(--color-dorado);
-            transform: scale(1.02);
-        }
-
-        /* --- 6. CIERRE Y RSVP CON FOTO DOMO --- */
-        .rsvp-cierre {
-            background: linear-gradient(rgba(45, 59, 31, 0.92), rgba(26, 36, 17, 0.96)),
-                        url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
-            color: var(--texto-claro);
-        }
-
-        .rsvp-cierre h2 { color: var(--texto-claro); }
-        .rsvp-cierre p { color: #d0d7c5; }
-        
-        .rsvp-cierre .btn-whatsapp {
-            background-color: var(--color-dorado);
-            border-color: var(--color-dorado);
-            color: white;
-            font-weight: 500;
-        }
-
-        .rsvp-cierre .btn-whatsapp:hover {
-            background-color: transparent;
-            color: var(--color-dorado);
-        }
-
-        /* --- REPRODUCTOR --- */
-        .reproductor-flotante {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: white;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            cursor: pointer;
-            z-index: 1000;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ebdcb9;
-            color: var(--color-principal);
-        }
-    </style>
-</head>
-<body>
-
-    <!-- CONTROL DE AUDIO -->
-    <div class="reproductor-flotante" onclick="toggleMusica()" id="btn-musica">
-        <span class="material-icons-outlined">music_note</span>
-    </div>
-    <audio id="musica-boda" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- 1. PORTADA ORNAMENTAL -->
-    <section class="portada">
-        <div class="marco-interno">
-            <div class="frase-inicial">Nuestra Boda</div>
-            <h1>Agustín <span class="ampersand">&</span> Mirian</h1>
-            <div class="adorno-floral">🌿</div>
-            <p style="color: white; font-style: italic;">Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres.</p>
-            <div class="fecha">24 . JULIO . 2025</div>
-        </div>
-    </section>
-
-    <!-- 2. HISTORIA Y CUENTA REGRESIVA -->
-    <section class="contador-seccion">
-        <div class="historia-foto"></div>
-        <h2>El Momento se Acerca</h2>
-        <div class="adorno-floral">🫒</div>
-        <p>Acompáñanos a iniciar este maravilloso capítulo de nuestra historia.</p>
-        
-        <div class="reloj">
-            <div class="bloque-tiempo"><span id="dias">00</span><div class="etiqueta">Días</div></div>
-            <div class="bloque-tiempo"><span id="horas">00</span><div class="etiqueta">Horas</div></div>
-            <div class="bloque-tiempo"><span id="minutos">00</span><div class="etiqueta">Min</div></div>
-            <div class="bloque-tiempo"><span id="segundos">00</span><div class="etiqueta">Seg</div></div>
-        </div>
-    </section>
-
-    <!-- 3. DETALLES DE UBICACIÓN -->
-    <section>
-        <h2>Lugar & Celebración</h2>
-        <div class="adorno-floral">🌿</div>
-        
-        <div class="bloque-lugar">
-            <div class="imagen-lugar-banner"></div>
-            <div class="contenido-lugar">
-                <span class="material-icons-outlined iconos-premium">local_bar</span>
-                <h3>Cava de Don Raúl</h3>
-                <div class="hora">Recepción — 14:00 HRS</div>
-                <p>Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
-                <div class="marco-nupcial">
-                    <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Ver Mapa Completo</a>
-                </div>
-            </div>
-            <div class="mapa-recuadro">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. CRONOGRAMA ARTÍSTICO -->
-    <section class="itinerario-seccion">
-        <div class="anillos-cabecera"></div>
-        <h2>Itinerario</h2>
-        <div class="adorno-floral">🫒</div>
-        <p>Cada instante ha sido planeado con amor para disfrutar juntos.</p>
-
-        <div class="linea-tiempo-completa">
-            <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">login</span>
-                <div class="nodo-texto">
-                    <h4>14:00 HRS</h4>
-                    <p>Entrada de los Novios</p>
-                </div>
-            </div>
-            <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">celebration</span>
-                <div class="nodo-texto">
-                    <h4>14:30 HRS</h4>
-                    <p>Brindis de Honor</p>
-                </div>
-            </div>
-            <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">restaurant</span>
-                <div class="nodo-texto">
-                    <h4>15:00 HRS</h4>
-                    <p>Comida Familiar</p>
-                </div>
-            </div>
-            <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">nightlife</span>
-                <div class="nodo-texto">
-                    <h4>16:00 HRS</h4>
-                    <p>¡Gran Apertura de la Fiesta!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. DETALLES ETIQUETA Y REGALOS -->
-    <section style="background-color: #ffffff;">
-        <h2>Notas Adicionales</h2>
-        <div class="adorno-floral">🌿</div>
-        
-        <div class="tarjeta-detalles-container">
-            <div class="tarjeta-detalle-premium">
-                <span class="material-icons-outlined iconos-premium">checkroom</span>
-                <h3>Dress Code</h3>
-                <p><strong>HOMBRES: GUAYABERA</strong></p>
-                <p style="font-size: 0.95rem; color: #555;">Les pedimos amablemente reservar la gama del color blanco únicamente para la novia.</p>
-            </div>
-
-            <div class="tarjeta-detalle-premium">
-                <span class="material-icons-outlined iconos-premium">card_giftcard</span>
-                <h3>Mesa de Regalos</h3>
-                <p>Agradecemos infinitamente su presencia. Si desean otorgarnos un presente, su muestra de cariño puede ser por:</p>
-                <p style="font-weight: 500; color: var(--color-principal); margin-top: 5px;">Lluvia de sobres o Transferencia bancaria</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. RSVP CIERRE -->
-    <section class="rsvp-cierre">
-        <h2>Confirmación</h2>
-        <div class="adorno-floral">🌿</div>
-        <p>Compartir este día con ustedes es nuestra mayor alegría. Por favor confímanos tu asistencia.</p>
-        
-        <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn rsvp-btn btn-whatsapp">
-            Confirmar por WhatsApp
-        </a>
-    </section>
-
-    <!-- JAVASCRIPT DEL RELOJ -->
-    <script>
-        const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
-
-        const intervalo = setInterval(function() {
-            const ahora = new Date().getTime();
-            const diferencia = fechaBoda - ahora;
-
-            const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diferencia % (1000 * 60)) / 1000);
-
-            if (document.getElementById("dias")) {
-                document.getElementById("dias").innerText = d < 10 && d >= 0 ? "0" + d : (d < 0 ? "00" : d);
-                document.getElementById("horas").innerText = h < 10 && h >= 0 ? "0" + h : (h < 0 ? "00" : h);
-                document.getElementById("minutos").innerText = m < 10 && m >= 0 ? "0" + m : (m < 0 ? "00" : m);
-                document.getElementById("segundos").innerText = s < 10 && s >= 0 ? "0" + s : (s < 0 ? "00" : s);
-            }
-
-            if (diferencia < 0) {
-                clearInterval(intervalo);
-                document.querySelector(".contador-seccion").innerHTML = "<h3>¡Llegó el gran día! 🎉</h3>";
-            }
-        }, 1000);
-
-        function toggleMusica() {
-            const audio = document.getElementById("musica-boda");
-            const icon = document.querySelector("#btn-musica span");
-            
-            if (audio.paused) {
-                audio.play();
-                icon.innerText = "pause";
-            } else {
-                audio.pause();
-                icon.innerText = "music_note";
-            }
-        }
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agustín & Mirian - Nuestra Boda</title>
     
-    <!-- Fuentes Premium y Google Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Iconos de Boda Nupciales y Celebración -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- PALETA OLIVA Y CHAMPAGNE --- */
         :root {
-            --color-principal: #3a4d28; /* Verde Oliva Oscuro de Alto Contraste */
-            --color-secundario: #7a8462; /* Verde Hoja Seca */
-            --color-fondo: #fdfdfb; /* Fondo Crema Claro Alabastro */
+            --color-principal: #3a4d28; /* Verde Oliva Oscuro */
+            --color-secundario: #7a8462; /* Verde Hoja */
+            --color-fondo: #fdfdfb; /* Fondo Crema Claro */
             --color-dorado: #bfa15f; /* Oro Viejo / Champagne */
-            --texto-oscuro: #1a1a1a; /* Contraste máximo para legibilidad */
+            --texto-oscuro: #1a1a1a;
             --texto-claro: #ffffff;
             --fuente-titulos: 'Cormorant Garamond', serif;
             --fuente-manuscrita: 'Alex Brush', cursive;
@@ -573,11 +36,14 @@
             color: var(--texto-oscuro);
             line-height: 1.8;
             text-align: center;
+            overflow-x: hidden;
+            position: relative;
         }
 
         section {
             padding: 100px 20px;
             position: relative;
+            z-index: 2; /* Por encima de las hojas flotantes */
         }
 
         h2 {
@@ -596,7 +62,28 @@
             color: #2c2c2c;
         }
 
-        /* --- DECORACIONES VECTORIALES ORNAMENTALES --- */
+        /* --- EFECTO DE HOJAS / PÉTALOS FLOTANTES --- */
+        #contenedor-hojas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .hoja-flotante {
+            position: absolute;
+            color: rgba(122, 132, 98, 0.25); /* Color verde oliva suave translúcido */
+            font-size: 1.2rem;
+            animation: caer linear infinite;
+        }
+        @keyframes caer {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(105vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- ORNAMENTOS --- */
         .adorno-floral {
             font-family: var(--fuente-manuscrita);
             font-size: 3.5rem;
@@ -607,7 +94,6 @@
             user-select: none;
         }
 
-        /* Marco de línea fina estilo tarjetería */
         .marco-nupcial {
             border: 1px solid var(--color-dorado);
             padding: 10px;
@@ -628,7 +114,7 @@
             color: var(--texto-claro);
             padding: 15px 40px;
             text-decoration: none;
-            border-radius: 0; /* Estilo clásico corte recto */
+            border-radius: 0;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -638,7 +124,6 @@
             transition: all 0.4s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-
         .btn:hover {
             background-color: transparent;
             color: var(--color-principal);
@@ -691,7 +176,7 @@
             display: inline-block;
         }
 
-        /* --- 2. SECCIÓN HISTORIA Y CONTADOR --- */
+        /* --- 2. HISTORIA Y CONTADOR --- */
         .historia-foto {
             width: 140px;
             height: 140px;
@@ -716,11 +201,6 @@
             margin: 30px auto 0 auto;
         }
 
-        .bloque-tiempo {
-            position: relative;
-            min-width: 90px;
-        }
-
         .bloque-tiempo span {
             display: block;
             font-size: 3rem;
@@ -736,16 +216,6 @@
             letter-spacing: 2px;
             color: #555;
             margin-top: 10px;
-            font-weight: 400;
-        }
-
-        .bloque-tiempo:not(:last-child)::after {
-            content: '•';
-            position: absolute;
-            right: -15px;
-            top: 10px;
-            color: var(--color-dorado);
-            font-size: 1.5rem;
         }
 
         /* --- 3. UBICACIÓN ELEGANTE --- */
@@ -762,18 +232,20 @@
 
         .imagen-lugar-banner {
             width: 100%;
-            height: 300px;
-            background: url('https://lh3.googleusercontent.com/d/1hMJhq9adiab4b8KoAHim4Au88faIteyj') no-repeat center center/cover;
+            height: 320px;
+            /* FOTO CAVA DE DON RAUL FACHADA ACTUALIZADA */
+            background: url('https://lh3.googleusercontent.com/d/1xc-jmtj-Ma7eLZaUAcalVnauoLXoHrn3') no-repeat center center/cover;
         }
 
         .contenido-lugar {
             padding: 50px 40px;
         }
 
-        .iconos-premium {
-            font-size: 2.5rem;
+        .iconos-boda-premium {
+            font-size: 2.8rem;
             color: var(--color-dorado);
             margin-bottom: 15px;
+            display: inline-block;
         }
 
         .mapa-recuadro {
@@ -782,7 +254,7 @@
             border-top: 1px solid #f0ede5;
         }
 
-        /* --- 4. CRONOGRAMA ARTÍSTICO --- */
+        /* --- 4. CRONOGRAMA NUPCIAL --- */
         .itinerario-seccion {
             background-color: #faf9f5;
         }
@@ -801,8 +273,7 @@
             margin: 50px auto 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
-            position: relative;
+            gap: 25px;
         }
 
         .nodo-itinerario {
@@ -813,12 +284,18 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
+            transition: transform 0.3s ease;
+        }
+        .nodo-itinerario:hover {
+            transform: translateX(5px);
         }
 
-        .nodo-itinerario .icon-box {
+        .nodo-itinerario .icon-box-boda {
             color: var(--color-dorado);
-            font-size: 2rem;
+            font-size: 2.2rem;
+            width: 50px;
+            text-align: center;
         }
 
         .nodo-texto h4 {
@@ -828,13 +305,7 @@
             font-weight: 500;
         }
 
-        .nodo-texto p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        /* --- 5. DETALLES DE ETIQUETA Y REGALOS --- */
+        /* --- 5. DETALLES DE ETIQUETA --- */
         .tarjeta-detalles-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -843,33 +314,22 @@
             margin: 40px auto 0 auto;
         }
 
-        @media (max-width: 768px) {
-            .tarjeta-detalles-container { grid-template-columns: 1fr; }
-            .reloj { gap: 10px; }
-            .bloque-tiempo { min-width: 65px; }
-            .bloque-tiempo span { font-size: 2.2rem; }
-            .bloque-tiempo:not(:last-child)::after { display: none; }
-        }
-
         .tarjeta-detalle-premium {
             background: white;
             border: 1px solid #eae6dc;
             padding: 40px 30px;
             transition: all 0.3s ease;
         }
-
         .tarjeta-detalle-premium:hover {
             border-color: var(--color-dorado);
-            transform: scale(1.02);
         }
 
-        /* --- 6. CIERRE Y RSVP CON FOTO DOMO --- */
+        /* --- 6. RSVP CIERRE --- */
         .rsvp-cierre {
             background: linear-gradient(rgba(45, 59, 31, 0.92), rgba(26, 36, 17, 0.96)),
                         url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
             color: var(--texto-claro);
         }
-
         .rsvp-cierre h2 { color: var(--texto-claro); }
         .rsvp-cierre p { color: #d0d7c5; }
         
@@ -879,7 +339,6 @@
             color: white;
             font-weight: 500;
         }
-
         .rsvp-cierre .btn-whatsapp:hover {
             background-color: transparent;
             color: var(--color-dorado);
@@ -904,13 +363,22 @@
             border: 1px solid #ebdcb9;
             color: var(--color-principal);
         }
+
+        @media (max-width: 768px) {
+            .tarjeta-detalles-container { grid-template-columns: 1fr; }
+            .reloj { gap: 15px; }
+            .bloque-tiempo span { font-size: 2.3rem; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- EFECTO CAÍDA DE HOJAS OLIVA DE FONDO -->
+    <div id="contenedor-hojas"></div>
+
     <!-- CONTROL DE AUDIO -->
     <div class="reproductor-flotante" onclick="toggleMusica()" id="btn-musica">
-        <span class="material-icons-outlined">music_note</span>
+        <i class="fa-solid fa-music"></i>
     </div>
     <audio id="musica-boda" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -942,7 +410,7 @@
         </div>
     </section>
 
-    <!-- 3. DETALLES DE UBICACIÓN -->
+    <!-- 3. UBICACIÓN CON ENLACE DE NUEVA FOTO FACHADA -->
     <section>
         <h2>Lugar & Celebración</h2>
         <div class="adorno-floral">🌿</div>
@@ -950,7 +418,8 @@
         <div class="bloque-lugar">
             <div class="imagen-lugar-banner"></div>
             <div class="contenido-lugar">
-                <span class="material-icons-outlined iconos-premium">local_bar</span>
+                <!-- Icono de Copas de Celebración -->
+                <i class="fa-solid fa-champagne-glasses iconos-boda-premium"></i>
                 <h3>Cava de Don Raúl</h3>
                 <div class="hora">Recepción — 14:00 HRS</div>
                 <p>Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
@@ -964,7 +433,7 @@
         </div>
     </section>
 
-    <!-- 4. CRONOGRAMA ARTÍSTICO -->
+    <!-- 4. CRONOGRAMA CON ICONOS EXCLUSIVOS DE BODA -->
     <section class="itinerario-seccion">
         <div class="anillos-cabecera"></div>
         <h2>Itinerario</h2>
@@ -973,28 +442,32 @@
 
         <div class="linea-tiempo-completa">
             <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">login</span>
+                <!-- Icono: Puerta Abierta / Campanas / Novios -->
+                <i class="fa-solid fa-bell icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:00 HRS</h4>
                     <p>Entrada de los Novios</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">celebration</span>
+                <!-- Icono: Brindis -->
+                <i class="fa-solid fa-clinking-glasses icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:30 HRS</h4>
                     <p>Brindis de Honor</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">restaurant</span>
+                <!-- Icono: Pastel de Bodas / Banquete -->
+                <i class="fa-solid fa-cake-candles icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>15:00 HRS</h4>
                     <p>Comida Familiar</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <span class="material-icons-outlined icon-box">nightlife</span>
+                <!-- Icono: Fiesta / Música de Boda -->
+                <i class="fa-solid fa-music icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>16:00 HRS</h4>
                     <p>¡Gran Apertura de la Fiesta!</p>
@@ -1003,23 +476,23 @@
         </div>
     </section>
 
-    <!-- 5. DETALLES ETIQUETA Y REGALOS -->
+    <!-- 5. DETALLES ADICIONALES -->
     <section style="background-color: #ffffff;">
         <h2>Notas Adicionales</h2>
         <div class="adorno-floral">🌿</div>
         
         <div class="tarjeta-detalles-container">
             <div class="tarjeta-detalle-premium">
-                <span class="material-icons-outlined iconos-premium">checkroom</span>
+                <i class="fa-solid fa-user-tie iconos-boda-premium"></i>
                 <h3>Dress Code</h3>
                 <p><strong>HOMBRES: GUAYABERA</strong></p>
-                <p style="font-size: 0.95rem; color: #555;">Les pedimos amablemente reservar la gama del color blanco únicamente para la novia.</p>
+                <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">Les pedimos amablemente reservar la gama del color blanco únicamente para la novia.</p>
             </div>
 
             <div class="tarjeta-detalle-premium">
-                <span class="material-icons-outlined iconos-premium">card_giftcard</span>
+                <i class="fa-solid fa-envelope-open-text iconos-boda-premium"></i>
                 <h3>Mesa de Regalos</h3>
-                <p>Agradecemos infinitamente su presencia. Si desean otorgarnos un presente, su muestra de cariño puede ser por:</p>
+                <p>Agradecemos infinitamente su presencia. Si deseas otorgarnos un presente, su muestra de cariño puede ser por:</p>
                 <p style="font-weight: 500; color: var(--color-principal); margin-top: 5px;">Lluvia de sobres o Transferencia bancaria</p>
             </div>
         </div>
@@ -1032,12 +505,13 @@
         <p>Compartir este día con ustedes es nuestra mayor alegría. Por favor confímanos tu asistencia.</p>
         
         <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn rsvp-btn btn-whatsapp">
-            Confirmar por WhatsApp
+            <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Confirmar por WhatsApp
         </a>
     </section>
 
-    <!-- JAVASCRIPT DEL RELOJ -->
+    <!-- JAVASCRIPT: RELOJ + EFECTO VISUAL DE HOJAS CAYENDO -->
     <script>
+        // Reloj Regresivo
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -1062,16 +536,37 @@
             }
         }, 1000);
 
+        // Generador de Efecto Hojas Flotantes
+        function crearHoja() {
+            const contenedor = document.getElementById('contenedor-hojas');
+            if (!contenedor) return;
+            
+            const hoja = document.createElement('i');
+            hoja.classList.add('fa-solid', 'fa-leaf', 'hoja-flotante');
+            
+            hoja.style.left = Math.random() * 100 + 'vw';
+            hoja.style.animationDuration = Math.random() * 5 + 5 + 's'; // Entre 5 y 10s
+            hoja.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            contenedor.appendChild(hoja);
+            
+            setTimeout(() => {
+                hoja.remove();
+            }, 10000);
+        }
+        setInterval(crearHoja, 400); // Crea una hoja nueva cada 400ms
+
+        // Control de Audio
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
-            const icon = document.querySelector("#btn-musica span");
+            const icon = document.querySelector("#btn-musica i");
             
             if (audio.paused) {
                 audio.play();
-                icon.innerText = "pause";
+                icon.className = "fa-solid fa-pause";
             } else {
                 audio.pause();
-                icon.innerText = "music_note";
+                icon.className = "fa-solid fa-music";
             }
         }
     </script>
