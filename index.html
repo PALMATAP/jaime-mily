@@ -5,35 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agustín & Mirian - Nuestra Boda</title>
     
-    <!-- Fuentes Premium de Google Fonts -->
+    <!-- Inyección de Fuentes de Alta Gama -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Iconos Lineales Minimalistas (Font Awesome) -->
+    <!-- Librería Core de Iconografía Lineal Plana (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- PALETA OLIVA Y CHAMPAGNE --- */
+        /* --- ARQUITECTURA DE DISEÑO (SISTEMA DE VARIABLES) --- */
         :root {
-            --color-principal: #3a4d28; /* Verde Oliva Oscuro */
-            --color-secundario: #7a8462; /* Verde Hoja */
-            --color-fondo: #fdfdfb; /* Fondo Crema Claro */
-            --color-dorado: #bfa15f; /* Oro Viejo / Champagne */
-            --texto-oscuro: #1a1a1a;
-            --texto-claro: #ffffff;
+            --color-principal: #3a4d28;      /* Verde Oliva Profundo Balanceado */
+            --color-secundario: #7a8462;     /* Verde Neutro de Transición */
+            --color-fondo: #fefdfa;          /* Blanco Alabastro Nupcial */
+            --color-dorado: #bfa15f;         /* Oro Champagne Satinado */
+            --color-dorado-alfa: rgba(191, 161, 95, 0.2);
+            --texto-solido: #111111;         /* Contraste Máximo Accesible (A11Y) */
             --fuente-titulos: 'Cormorant Garamond', serif;
             --fuente-manuscrita: 'Alex Brush', cursive;
             --fuente-cuerpo: 'Montserrat', sans-serif;
         }
 
-        /* --- ESTILOS BASE --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        /* --- RESETEO Y OPTIMIZACIÓN DEL RENDERIZADO --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
         body {
             font-family: var(--fuente-cuerpo);
             background-color: var(--color-fondo);
-            color: var(--texto-oscuro);
+            color: var(--texto-solido);
             line-height: 1.8;
             text-align: center;
             overflow-x: hidden;
@@ -41,17 +51,19 @@
         }
 
         section {
-            padding: 100px 20px;
+            padding: 120px 20px;
             position: relative;
             z-index: 2;
         }
 
+        /* --- COMPONENTES ORNAMENTALES VECTORIALES (CSS) --- */
         h2 {
             font-family: var(--fuente-titulos);
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 300;
             color: var(--color-principal);
             letter-spacing: 4px;
+            line-height: 1.2;
         }
 
         p {
@@ -59,10 +71,96 @@
             font-weight: 300;
             max-width: 580px;
             margin: 0 auto 15px auto;
-            color: #2c2c2c;
+            color: #2a2a2a;
         }
 
-        /* --- EFECTO SUTIL DE HOJAS FLOTANTES --- */
+        .separador-oliva {
+            font-family: var(--fuente-manuscrita);
+            font-size: 3.5rem;
+            color: var(--color-dorado);
+            line-height: 1;
+            margin: 15px auto 35px auto;
+            display: block;
+            user-select: none;
+        }
+
+        /* Divisiones heráldicas horizontales con remate */
+        .linea-divisoria {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        .linea-divisoria::before, .linea-divisoria::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to var(--direction, right), transparent, var(--color-dorado));
+        }
+        .linea-divisoria::after { --direction: left; }
+
+        .linea-divisoria span {
+            padding: 0 15px;
+            color: var(--color-principal);
+            font-size: 1.2rem;
+        }
+
+        /* Enmarcado Premium para áreas de texto destacadas */
+        .caja-enmarcada {
+            border: 1px solid var(--color-dorado);
+            padding: 40px 30px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .caja-enmarcada::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border: 1px solid var(--color-dorado-alfa);
+            pointer-events: none;
+        }
+
+        /* --- TRATAMIENTO DE FOTOGRAFÍAS (RESALTADO FLOTANTE) --- */
+        .foto-resaltada {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border: 12px solid #ffffff; /* Efecto paspartú clásico */
+            outline: 1px solid var(--color-dorado);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .foto-resaltada:hover {
+            transform: scale(1.015) translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        /* --- SISTEMA DE BOTONES E INTERACCIÓN --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--color-principal);
+            color: var(--texto-claro);
+            padding: 16px 45px;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            margin-top: 25px;
+            border: 1px solid var(--color-principal);
+            transition: all 0.35s cubic-bezier(0.215, 0.610, 0.355, 1);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-principal);
+            border-color: var(--color-principal);
+        }
+
+        /* --- MOTOR DE ANIMACIÓN: HOJAS CAYENDO --- */
         #contenedor-hojas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -70,70 +168,25 @@
             z-index: 1;
             overflow: hidden;
         }
+        
         .hoja-flotante {
             position: absolute;
-            color: rgba(122, 132, 98, 0.2); 
-            font-size: 1rem;
-            animation: caer linear infinite;
+            color: rgba(122, 132, 98, 0.18); 
+            font-size: 0.95rem;
+            animation: caídaLineal linear infinite;
         }
-        @keyframes caer {
+
+        @keyframes caídaLineal {
             0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% { transform: translateY(105vh) translateX(80px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(105vh) translateX(70px) rotate(360deg); opacity: 0; }
         }
 
-        /* --- ORNAMENTOS --- */
-        .adorno-floral {
-            font-family: var(--fuente-manuscrita);
-            font-size: 3.5rem;
-            color: var(--color-dorado);
-            line-height: 1;
-            margin: 10px auto 25px auto;
-            display: block;
-            user-select: none;
-        }
-
-        .marco-nupcial {
-            border: 1px solid var(--color-dorado);
-            padding: 10px;
-            margin: 20px auto;
-            display: inline-block;
-            position: relative;
-        }
-        .marco-nupcial::before {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px; right: -5px; bottom: -5px;
-            border: 1px solid rgba(191, 161, 95, 0.3);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--color-principal);
-            color: var(--texto-claro);
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 0;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 400;
-            margin-top: 20px;
-            border: 1px solid var(--color-principal);
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .btn:hover {
-            background-color: transparent;
-            color: var(--color-principal);
-            transform: translateY(-2px);
-        }
-
-        /* --- 1. PORTADA ORNAMENTAL --- */
+        /* --- 1. SECCIÓN PORTADA MAGNA --- */
         .portada {
             height: 100vh;
-            background: linear-gradient(rgba(26, 26, 26, 0.45), rgba(26, 26, 26, 0.15)), 
+            background: linear-gradient(rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0.2)), 
                         url('https://lh3.googleusercontent.com/d/1IuD4lf6eAdea-aBjAUxAYDptXkFpNUGS') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
@@ -142,17 +195,19 @@
             color: var(--texto-claro);
         }
 
-        .portada .marco-interno {
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 40px 30px;
+        .portada .marco-interno-portada {
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 50px 40px;
             max-width: 90%;
-            background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(1px);
+            width: 550px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
         }
 
         .portada h1 {
             font-family: var(--fuente-titulos);
-            font-size: 4.8rem;
+            font-size: 5rem;
             font-weight: 300;
             color: var(--texto-claro);
             line-height: 1.1;
@@ -168,42 +223,42 @@
 
         .portada .fecha {
             font-size: 1.3rem;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             border-top: 1px solid var(--color-dorado);
             border-bottom: 1px solid var(--color-dorado);
-            padding: 8px 25px;
-            margin-top: 20px;
+            padding: 10px 30px;
+            margin-top: 25px;
             display: inline-block;
         }
 
-        /* --- 2. HISTORIA Y CONTADOR --- */
+        /* --- 2. CONTADOR Y RETRATO --- */
         .historia-foto {
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 30px auto;
             background: url('https://lh3.googleusercontent.com/d/1IDRbAhVbwe6J_CLx1PbfZgXIk1diQsza') no-repeat center center/cover;
             border: 2px solid var(--color-dorado);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
 
         .contador-seccion {
-            background-color: #f7f6f2;
-            border-top: 1px solid #eae7df;
-            border-bottom: 1px solid #eae7df;
+            background-color: #f6f5f0;
+            border-top: 1px solid #e6e3da;
+            border-bottom: 1px solid #e6e3da;
         }
 
         .reloj {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             max-width: 650px;
-            margin: 30px auto 0 auto;
+            margin: 40px auto 0 auto;
         }
 
         .bloque-tiempo span {
             display: block;
-            font-size: 3rem;
+            font-size: 3.4rem;
             font-family: var(--fuente-titulos);
             color: var(--color-principal);
             font-weight: 300;
@@ -214,62 +269,68 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #555;
-            margin-top: 10px;
+            color: #444;
+            margin-top: 12px;
+            font-weight: 500;
         }
 
-        /* --- 3. UBICACIÓN ELEGANTE --- */
+        /* --- 3. SECCIÓN DESTINO (UBICACIÓN ARQUITECTÓNICA) --- */
         .bloque-lugar {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 750px;
+            margin: 40px auto 0 auto;
             background: white;
             border: 1px solid #ebdcb9;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.02);
         }
 
         .imagen-lugar-banner {
             width: 100%;
-            height: 320px;
+            height: 350px;
             background: url('https://lh3.googleusercontent.com/d/1xc-jmtj-Ma7eLZaUAcalVnauoLXoHrn3') no-repeat center center/cover;
         }
 
         .contenido-lugar {
-            padding: 50px 40px;
+            padding: 60px 40px;
         }
 
-        .iconos-boda-premium {
+        .iconos-lineales-premium {
             font-size: 2.2rem;
             color: var(--color-dorado);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: inline-block;
             font-weight: 300;
         }
 
         .mapa-recuadro {
             width: 100%;
-            height: 280px;
-            border-top: 1px solid #f0ede5;
+            height: 300px;
+            border-top: 1px solid #ebdcb9;
         }
 
-        /* --- 4. CRONOGRAMA NUPCIAL MINIMALISTA --- */
+        .mapa-recuadro iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- 4. CRONOGRAMA CORPORATIVO / TIMELINE --- */
         .itinerario-seccion {
-            background-color: #faf9f5;
+            background-color: #faf9f4;
         }
 
         .anillos-cabecera {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px auto;
-            background: url('https://lh3.googleusercontent.com/d/1uWXlDjyxg2wikofdshT2XdFBtHtJsQ_F') no-repeat center center/cover;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px auto;
             border-radius: 50%;
             border: 1px solid var(--color-dorado);
+            background: url('https://lh3.googleusercontent.com/d/1uWXlDjyxg2wikofdshT2XdFBtHtJsQ_F') no-repeat center center/cover;
         }
 
         .linea-tiempo-completa {
-            max-width: 600px;
+            max-width: 550px;
             margin: 50px auto 0 auto;
             display: grid;
             grid-template-columns: 1fr;
@@ -278,17 +339,13 @@
 
         .nodo-itinerario {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-left: 2px solid var(--color-principal);
             text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
             display: flex;
             align-items: center;
             gap: 30px;
-            transition: transform 0.3s ease;
-        }
-        .nodo-itinerario:hover {
-            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
         }
 
         .nodo-itinerario .icon-box-boda {
@@ -304,52 +361,56 @@
             font-size: 1.4rem;
             color: var(--color-principal);
             font-weight: 500;
+            letter-spacing: 1px;
         }
 
-        /* --- 5. DETALLES DE ETIQUETA --- */
+        /* --- 5. BLOQUE DE PROTOCOLO Y ETIQUETA --- */
         .tarjeta-detalles-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
             max-width: 800px;
-            margin: 40px auto 0 auto;
+            margin: 50px auto 0 auto;
         }
 
         .tarjeta-detalle-premium {
             background: white;
             border: 1px solid #eae6dc;
-            padding: 40px 30px;
+            padding: 50px 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
         }
 
-        /* --- 6. RSVP CIERRE --- */
+        /* --- 6. SECCIÓN DE CONFIRMACIÓN (CIERRE) --- */
         .rsvp-cierre {
-            background: linear-gradient(rgba(45, 59, 31, 0.92), rgba(26, 36, 17, 0.96)),
+            background: linear-gradient(rgba(45, 59, 31, 0.94), rgba(26, 36, 17, 0.97)),
                         url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
             color: var(--texto-claro);
         }
+
         .rsvp-cierre h2 { color: var(--texto-claro); }
-        .rsvp-cierre p { color: #d0d7c5; }
+        .rsvp-cierre p { color: #d5ded0; }
         
         .rsvp-cierre .btn-whatsapp {
             background-color: var(--color-dorado);
             border-color: var(--color-dorado);
             color: white;
-            font-weight: 500;
+            font-weight: 600;
         }
+
         .rsvp-cierre .btn-whatsapp:hover {
             background-color: transparent;
             color: var(--color-dorado);
         }
 
-        /* --- REPRODUCTOR --- */
+        /* --- BOTÓN FLOTANTE ACÚSTICO --- */
         .reproductor-flotante {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: white;
             padding: 10px;
             border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             cursor: pointer;
             z-index: 1000;
             width: 55px;
@@ -361,19 +422,25 @@
             color: var(--color-principal);
         }
 
+        /* --- ADAPTACIÓN RESPONSIVA (MOBILE FIRST COMPLIANT) --- */
         @media (max-width: 768px) {
-            .tarjeta-detalles-container { grid-template-columns: 1fr; }
+            section { padding: 80px 15px; }
+            h2 { font-size: 2.5rem; }
+            .portada h1 { font-size: 3.5rem; }
             .reloj { gap: 15px; }
-            .bloque-tiempo span { font-size: 2.3rem; }
+            .bloque-tiempo span { font-size: 2.5rem; }
+            .tarjeta-detalles-container { grid-template-columns: 1fr; gap: 25px; }
+            .contenido-lugar { padding: 40px 20px; }
+            .imagen-lugar-banner { height: 240px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- EFECTO CAÍDA DE HOJAS OLIVA SUTILEZA -->
+    <!-- CAPA TÉCNICA: HOJAS CAYENDO -->
     <div id="contenedor-hojas"></div>
 
-    <!-- CONTROL DE AUDIO -->
+    <!-- AUDIO CORE -->
     <div class="reproductor-flotante" onclick="toggleMusica()" id="btn-musica">
         <i class="fa-regular fa-music"></i>
     </div>
@@ -381,22 +448,22 @@
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 1. PORTADA ORNAMENTAL -->
+    <!-- 1. PORTADA MAGNA -->
     <section class="portada">
-        <div class="marco-interno">
+        <div class="marco-interno-portada">
             <div class="frase-inicial">Nuestra Boda</div>
             <h1>Agustín <span class="ampersand">&</span> Mirian</h1>
-            <div class="adorno-floral">🌿</div>
-            <p style="color: white; font-style: italic;">Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres.</p>
+            <div class="separador-oliva">🌿</div>
+            <p style="color: white; font-style: italic; font-weight: 300;">Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres.</p>
             <div class="fecha">24 . JULIO . 2025</div>
         </div>
     </section>
 
-    <!-- 2. HISTORIA Y CUENTA REGRESIVA -->
+    <!-- 2. CONTADOR REGRESIVO -->
     <section class="contador-seccion">
-        <div class="historia-foto"></div>
+        <div class="historia-foto foto-resaltada"></div>
         <h2>El Momento se Acerca</h2>
-        <div class="adorno-floral">🫒</div>
+        <div class="separador-oliva">🫒</div>
         <p>Acompáñanos a iniciar este maravilloso capítulo de nuestra historia.</p>
         
         <div class="reloj">
@@ -407,39 +474,37 @@
         </div>
     </section>
 
-    <!-- 3. UBICACIÓN -->
+    <!-- 3. DESTINO / UBICACIÓN -->
     <section>
         <h2>Lugar & Celebración</h2>
-        <div class="adorno-floral">🌿</div>
+        <div class="separador-oliva">🌿</div>
         
-        <div class="bloque-lugar">
+        <div class="bloque-lugar foto-resaltada">
             <div class="imagen-lugar-banner"></div>
             <div class="contenido-lugar">
-                <!-- Icono Lineal Elegante: Marcador de Ubicación Nupcial -->
-                <i class="fa-regular fa-map-location-dot iconos-boda-premium"></i>
+                <i class="fa-regular fa-map-location-dot iconos-lineales-premium"></i>
                 <h3>Cava de Don Raúl</h3>
-                <div class="hora">Recepción — 14:00 HRS</div>
-                <p>Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
+                <div class="hora" style="color: var(--color-dorado); font-weight: 600; letter-spacing: 2px; margin-bottom: 15px;">RECEPCIÓN — 14:00 HRS</div>
+                <p style="color: #555; font-size: 0.95rem;">Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
                 <div class="marco-nupcial">
-                    <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Ver Mapa Completo</a>
+                    <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Ver ubicación en GPS</a>
                 </div>
             </div>
             <div class="mapa-recuadro">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 4. CRONOGRAMA CON ICONOS LINEALES DE BODA -->
+    <!-- 4. CRONOGRAMA EXCLUSIVO -->
     <section class="itinerario-seccion">
-        <div class="anillos-cabecera"></div>
-        <h2>Itinerario</h2>
-        <div class="adorno-floral">🫒</div>
-        <p>Cada instante ha sido planeado con amor para disfrutar juntos.</p>
+        <div class="anillos-cabecera foto-resaltada"></div>
+        <h2>Itinerario del Día</h2>
+        <div class="separador-oliva">🫒</div>
+        <p>Compartamos cada instante de esta celebración 🕓</p>
 
         <div class="linea-tiempo-completa">
-            <div class="nodo-itinerario">
-                <!-- Icono Lineal: Copas de Bienvenida -->
+            <div class="nodo-itinerario" style="border-color: var(--color-dorado);">
                 <i class="fa-regular fa-champagne-glasses icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:00 HRS</h4>
@@ -447,7 +512,6 @@
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono Lineal: Descorche / Brindis -->
                 <i class="fa-regular fa-bottle-champagne icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:30 HRS</h4>
@@ -455,7 +519,6 @@
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono Lineal: Cubiertos Finos Banquete -->
                 <i class="fa-regular fa-utensils icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>15:00 HRS</h4>
@@ -463,53 +526,53 @@
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono Lineal: Música / Celebración -->
                 <i class="fa-regular fa-compact-disc icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>16:00 HRS</h4>
-                    <p>¡Gran Apertura de la Fiesta!</p>
+                    <p>¡Apertura de la Fiesta!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. NOTAS DE REQUISITOS -->
+    <!-- 5. PROTOCOLO -->
     <section style="background-color: #ffffff;">
-        <h2>Notas Adicionales</h2>
-        <div class="adorno-floral">🌿</div>
+        <h2>Protocolo de Invitados</h2>
+        <div class="separador-oliva">🌿</div>
         
         <div class="tarjeta-detalles-container">
-            <div class="tarjeta-detalle-premium">
-                <!-- Icono Lineal: Traje formal de etiqueta -->
-                <i class="fa-regular fa-user-tie iconos-boda-premium"></i>
+            <div class="tarjeta-detalle-premium caja-enmarcada">
+                <i class="fa-regular fa-user-tie iconos-lineales-premium"></i>
                 <h3>Dress Code</h3>
                 <p><strong>HOMBRES: GUAYABERA</strong></p>
-                <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">Les pedimos amablemente reservar la gama del color blanco únicamente para la novia.</p>
+                <div class="linea-divisoria"><span>🫒</span></div>
+                <p style="font-size: 0.95rem; color: #555;">Les recordamos reservar la gama del color blanco estrictamente para la novia.</p>
             </div>
 
-            <div class="tarjeta-detalle-premium">
-                <!-- Icono Lineal: Sobre abierto de obsequio / Dinero -->
-                <i class="fa-regular fa-envelope-open iconos-boda-premium"></i>
+            <div class="tarjeta-detalle-premium caja-enmarcada">
+                <i class="fa-regular fa-envelope-open iconos-lineales-premium"></i>
                 <h3>Mesa de Regalos</h3>
-                <p>Agradecemos infinitamente su presencia. Si deseas otorgarnos un presente, su muestra de cariño puede ser por:</p>
-                <p style="font-weight: 500; color: var(--color-principal); margin-top: 5px;">Lluvia de sobres o Transferencia bancaria</p>
+                <p>Su presencia es nuestro mayor regalo. Si desean tener un detalle con nosotros, nuestra modalidad es:</p>
+                <div class="linea-divisoria"><span>🫒</span></div>
+                <p style="font-weight: 500; color: var(--color-principal);">Lluvia de sobres o Transferencia bancaria</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. RSVP CIERRE -->
+    <!-- 6. CIERRE / RSVP -->
     <section class="rsvp-cierre">
-        <h2>Confirmación</h2>
-        <div class="adorno-floral">🌿</div>
-        <p>Compartir este día con ustedes es nuestra mayor alegría. Por favor confímanos tu asistencia.</p>
+        <h2>Confirmación de Asistencia</h2>
+        <div class="separador-oliva">🌿</div>
+        <p>Agradecemos confirmar su asistencia para recibirlos de la mejor manera en este día tan esperado.</p>
         
-        <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn rsvp-btn btn-whatsapp">
-            <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Confirmar por WhatsApp
+        <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp" style="margin-right: 10px;"></i> Confirmar por WhatsApp
         </a>
     </section>
 
-    <!-- JAVASCRIPT ANIMACIONES Y RELOJ -->
+    <!-- JAVASCRIPT ROBUSTO INTEGRADO -->
     <script>
+        // Lógica del Cronómetro Regresivo (24 de Julio del 2025 a las 14:00)
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -530,11 +593,12 @@
 
             if (diferencia < 0) {
                 clearInterval(intervalo);
-                document.querySelector(".contador-seccion").innerHTML = "<h3>¡Llegó el gran día! 🎉</h3>";
+                document.querySelector(".contador-seccion").innerHTML = "<h3 style='font-family:var(--fuente-titulos); font-size:2rem; padding: 20px; color:var(--color-principal);'>¡Llegó el gran día! 🎉</h3>";
             }
         }, 1000);
 
-        function crearHoja() {
+        // Generador Técnico del Efecto Hojas de Olivo Caídas
+        function crearHojaOliva() {
             const contenedor = document.getElementById('contenedor-hojas');
             if (!contenedor) return;
             
@@ -542,21 +606,22 @@
             hoja.classList.add('fa-solid', 'fa-leaf', 'hoja-flotante');
             
             hoja.style.left = Math.random() * 100 + 'vw';
-            hoja.style.animationDuration = Math.random() * 5 + 6 + 's'; 
-            hoja.style.fontSize = Math.random() * 8 + 8 + 'px';
+            hoja.style.animationDuration = Math.random() * 4 + 7 + 's'; /* Descenso pausado elegante */
+            hoja.style.fontSize = Math.random() * 6 + 9 + 'px';
             
             contenedor.appendChild(hoja);
             
             setTimeout(() => { hoja.remove(); }, 11000);
         }
-        setInterval(crearHoja, 500); 
+        setInterval(crearHojaOliva, 600); 
 
+        // Control del Reproductor de Audio Flotante
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const icon = document.querySelector("#btn-musica i");
             
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(err => console.log("Interacción de navegador requerida para audio."));
                 icon.className = "fa-solid fa-pause";
             } else {
                 audio.pause();
