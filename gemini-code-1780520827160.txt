@@ -1,0 +1,9 @@
+# Archivos basura del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales o de configuración personal
+*.log
+.vscode/
+.idea/

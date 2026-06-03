@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agustín & Mirian - Nuestra Boda</title>
+    
+    <!-- Fuentes elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES DE DISEÑO (ESTILO OLIVA CLÁSICA) --- */
+        :root {
+            --color-principal: #556b2f; /* Verde Oliva */
+            --color-secundario: #8f9779; /* Verde Suave */
+            --color-fondo: #fcfbfa; /* Blanco Roto / Crema sutil */
+            --color-dorado: #c5a059; /* Detalles elegantes */
+            --texto-oscuro: #3d3d3d;
+            --texto-claro: #ffffff;
+            --fuente-titulos: 'Cormorant Garamond', serif;
+            --fuente-manuscrita: 'Alex Brush', cursive;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESTILOS BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--color-fondo);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        section {
+            padding: 70px 20px;
+            position: relative;
+        }
+
+        h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--color-principal);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto 15px auto;
+        }
+
+        /* Separador de hojas clásico */
+        .separador {
+            font-family: var(--fuente-manuscrita);
+            font-size: 2.5rem;
+            color: var(--color-secundario);
+            margin: 10px auto 20px auto;
+            user-select: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-principal);
+            color: var(--texto-claro);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(85, 107, 47, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--color-secundario);
+            transform: translateY(-2px);
+        }
+
+        /* --- 1. PORTADA (HERO) --- */
+        .portada {
+            height: 100vh;
+            background: linear-gradient(rgba(252, 251, 250, 0.5), rgba(252, 251, 250, 0.3)), 
+                        url('https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=1200') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .portada .frase-inicial {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--texto-oscuro);
+        }
+
+        .portada h1 {
+            font-family: var(--fuente-titulos);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--color-principal);
+            margin: 15px 0;
+            line-height: 1.1;
+        }
+
+        .portada .ampersand {
+            font-family: var(--fuente-manuscrita);
+            font-size: 3.5rem;
+            display: block;
+            color: var(--color-dorado);
+            margin: -10px 0;
+        }
+
+        .portada .fecha {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            border-top: 1px solid var(--color-secundario);
+            border-bottom: 1px solid var(--color-secundario);
+            padding: 8px 20px;
+            margin-top: 15px;
+        }
+
+        /* --- 2. CONTADOR --- */
+        .contador-seccion {
+            background-color: #f5f3ee;
+        }
+
+        .contador-seccion h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .reloj {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .bloque-tiempo {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 8px;
+            min-width: 75px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .bloque-tiempo span {
+            display: block;
+            font-size: 2rem;
+            font-family: var(--fuente-titulos);
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .bloque-tiempo .etiqueta {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* --- 3. UBICACIÓN --- */
+        .tarjeta-evento {
+            background: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #f0ede6;
+        }
+
+        .tarjeta-evento .icono {
+            font-size: 2.5rem;
+            color: var(--color-dorado);
+            margin-bottom: 15px;
+        }
+
+        .tarjeta-evento h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-evento .hora {
+            font-weight: 500;
+            color: var(--color-principal);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* --- 4. ITINERARIO / TIMELINE --- */
+        .itinerario-seccion {
+            background-color: #faf8f5;
+            border-top: 1px solid #f0ede6;
+        }
+
+        .timeline {
+            max-width: 500px;
+            margin: 30px auto 0 auto;
+            position: relative;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            bottom: 5px;
+            width: 1px;
+            background-color: var(--color-secundario);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 6px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--color-principal);
+            border: 3px solid white;
+        }
+
+        .timeline-hora {
+            font-weight: 500;
+            color: var(--color-principal);
+            font-size: 0.9rem;
+        }
+
+        .timeline-titulo {
+            font-family: var(--fuente-titulos);
+            font-size: 1.3rem;
+            color: var(--texto-oscuro);
+        }
+
+        /* --- 5. REGALOS Y DRESS CODE --- */
+        .info-bloque {
+            background-color: #fbf9f4;
+            border-top: 1px solid #f0ede6;
+            border-bottom: 1px solid #f0ede6;
+        }
+
+        .info-item {
+            margin: 40px 0;
+        }
+
+        .info-item h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        /* --- 6. RSVP / CONFIRMACIÓN --- */
+        .rsvp {
+            background-color: var(--color-principal);
+            color: var(--texto-claro);
+        }
+
+        .rsvp h2 {
+            color: var(--texto-claro);
+        }
+
+        .rsvp p {
+            color: #e2e7d5;
+        }
+
+        .rsvp .btn-whatsapp {
+            background-color: #ffffff;
+            color: var(--color-principal);
+            font-weight: 400;
+        }
+
+        .rsvp .btn-whatsapp:hover {
+            background-color: var(--color-dorado);
+            color: white;
+        }
+
+        /* --- REPRODUCTOR DE MÚSICA FLOTANTE --- */
+        .reproductor-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BOTÓN MÚSICA FLOTANTE -->
+    <div class="reproductor-flotante" onclick="toggleMusica()" id="btn-musica">🎵</div>
+    <audio id="musica-boda" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 1. PORTADA -->
+    <section class="portada">
+        <div class="frase-inicial">Nuestra Boda</div>
+        <h1>Agustín <span class="ampersand">&</span> Mirian</h1>
+        <div class="separador">🌿</div>
+        <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 20px;">
+            Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres.
+        </p>
+        <div class="fecha">24 . JULIO . 2025</div>
+    </section>
+
+    <!-- 2. CUENTA REGRESIVA -->
+    <section class="contador-seccion">
+        <h3>Falta muy poco para el gran día</h3>
+        <div class="reloj">
+            <div class="bloque-tiempo">
+                <span id="dias">00</span>
+                <div class="etiqueta">Días</div>
+            </div>
+            <div class="bloque-tiempo">
+                <span id="horas">00</span>
+                <div class="etiqueta">Horas</div>
+            </div>
+            <div class="bloque-tiempo">
+                <span id="minutos">00</span>
+                <div class="etiqueta">Min</div>
+            </div>
+            <div class="bloque-tiempo">
+                <span id="segundos">00</span>
+                <div class="etiqueta">Seg</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DETALLES DE LA RECEPCIÓN -->
+    <section>
+        <h2>Lugar & Hora</h2>
+        <div class="separador">🌿</div>
+        
+        <div class="tarjeta-evento">
+            <div class="icono">🥂</div>
+            <h3>Recepción</h3>
+            <div class="hora">Los esperamos a las 14:00 HRS</div>
+            <p><strong>Cava de Don Raúl</strong></p>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 15px;">
+                Callejon de la Liebre, 22755 El Porvenir, B.C.
+            </p>
+            <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Ver mapa de ubicación</a>
+        </div>
+    </section>
+
+    <!-- 4. CRONOGRAMA / ITINERARIO -->
+    <section class="itinerario-seccion">
+        <h2>Itinerario del Día</h2>
+        <div class="separador">🌿</div>
+        <p>No te pierdas ningún momento especial de nuestra celebración 🕓</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-hora">14:00 HRS</div>
+                <div class="timeline-titulo">Entrada de los Novios</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-hora">14:30 HRS</div>
+                <div class="timeline-titulo">Brindis</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-hora">15:00 HRS</div>
+                <div class="timeline-titulo">Comida</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-hora">16:00 HRS</div>
+                <div class="timeline-titulo">¡Empieza la Fiesta!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INFORMACIÓN COMPLEMENTARIA -->
+    <section class="info-bloque">
+        <h2>Detalles Importantes</h2>
+        <div class="separador">🌿</div>
+
+        <!-- Código de Vestimenta -->
+        <div class="info-item">
+            <div style="font-size: 2rem; margin-bottom: 10px;">👔</div>
+            <h3>Dress Code</h3>
+            <p><strong>HOMBRES: GUAYABERA</strong></p>
+            <p style="font-size: 0.95rem; color: #555;">Agradecemos reservar el color blanco exclusivamente para la novia.</p>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #e0ede6; width: 40%; margin: 30px auto;">
+
+        <!-- Regalos -->
+        <div class="info-item">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🎁</div>
+            <h3>Mesa de Regalos</h3>
+            <p>Tu presencia es nuestro mejor obsequio, pero si deseas tener un detalle con nosotros, nuestra modalidad es:</p>
+            <p><strong>Lluvia de sobres o Transferencia bancaria</strong></p>
+        </div>
+    </section>
+
+    <!-- 6. RSVP / CONFIRMACIÓN -->
+    <section class="rsvp">
+        <h2>Confirmación de Asistencia</h2>
+        <div class="separador" style="color: var(--color-dorado);">🌿</div>
+        <p>Por favor, confímanos tu asistencia para poder esperarte con todo listo.</p>
+        
+        <a href="https://wa.me/521234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agustín%20y%20Mirian." target="_blank" class="btn rsvp-btn btn-whatsapp">
+            Confirmar por WhatsApp
+        </a>
+    </section>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        // Configuración de la Fecha de la Boda (Año, Mes [0-11 donde Julio es 6], Día, Hora, Minutos)
+        const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
+
+        const intervalo = setInterval(function() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaBoda - ahora;
+
+            const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            if (document.getElementById("dias")) {
+                document.getElementById("dias").innerText = d < 10 && d >= 0 ? "0" + d : (d < 0 ? "00" : d);
+                document.getElementById("horas").innerText = h < 10 && h >= 0 ? "0" + h : (h < 0 ? "00" : h);
+                document.getElementById("minutos").innerText = m < 10 && m >= 0 ? "0" + m : (m < 0 ? "00" : m);
+                document.getElementById("segundos").innerText = s < 10 && s >= 0 ? "0" + s : (s < 0 ? "00" : s);
+            }
+
+            if (diferencia < 0) {
+                clearInterval(intervalo);
+                document.querySelector(".contador-seccion").innerHTML = "<h3>¡Llegó el gran día! 🎉</h3>";
+            }
+        }, 1000);
+
+        function toggleMusica() {
+            const audio = document.getElementById("musica-boda");
+            const btn = document.getElementById("btn-musica");
+            
+            if (audio.paused) {
+                audio.play();
+                btn.innerText = "⏸️";
+            } else {
+                audio.pause();
+                btn.innerText = "🎵";
+            }
+        }
+    </script>
+</body>
+</html>
