@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Iconos de Boda Nupciales y Celebración -->
+    <!-- Iconos Lineales Minimalistas (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -43,7 +43,7 @@
         section {
             padding: 100px 20px;
             position: relative;
-            z-index: 2; /* Por encima de las hojas flotantes */
+            z-index: 2;
         }
 
         h2 {
@@ -62,7 +62,7 @@
             color: #2c2c2c;
         }
 
-        /* --- EFECTO DE HOJAS / PÉTALOS FLOTANTES --- */
+        /* --- EFECTO SUTIL DE HOJAS FLOTANTES --- */
         #contenedor-hojas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -72,15 +72,15 @@
         }
         .hoja-flotante {
             position: absolute;
-            color: rgba(122, 132, 98, 0.25); /* Color verde oliva suave translúcido */
-            font-size: 1.2rem;
+            color: rgba(122, 132, 98, 0.2); 
+            font-size: 1rem;
             animation: caer linear infinite;
         }
         @keyframes caer {
             0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% { transform: translateY(105vh) translateX(100px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(105vh) translateX(80px) rotate(360deg); opacity: 0; }
         }
 
         /* --- ORNAMENTOS --- */
@@ -133,7 +133,7 @@
         /* --- 1. PORTADA ORNAMENTAL --- */
         .portada {
             height: 100vh;
-            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.2)), 
+            background: linear-gradient(rgba(26, 26, 26, 0.45), rgba(26, 26, 26, 0.15)), 
                         url('https://lh3.googleusercontent.com/d/1IuD4lf6eAdea-aBjAUxAYDptXkFpNUGS') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
@@ -143,11 +143,11 @@
         }
 
         .portada .marco-interno {
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 40px 30px;
             max-width: 90%;
             background: rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(1px);
         }
 
         .portada h1 {
@@ -183,8 +183,8 @@
             border-radius: 50%;
             margin: 0 auto 25px auto;
             background: url('https://lh3.googleusercontent.com/d/1IDRbAhVbwe6J_CLx1PbfZgXIk1diQsza') no-repeat center center/cover;
-            border: 3px solid var(--color-dorado);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 2px solid var(--color-dorado);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
         }
 
         .contador-seccion {
@@ -227,13 +227,12 @@
             margin: 0 auto;
             background: white;
             border: 1px solid #ebdcb9;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.02);
         }
 
         .imagen-lugar-banner {
             width: 100%;
             height: 320px;
-            /* FOTO CAVA DE DON RAUL FACHADA ACTUALIZADA */
             background: url('https://lh3.googleusercontent.com/d/1xc-jmtj-Ma7eLZaUAcalVnauoLXoHrn3') no-repeat center center/cover;
         }
 
@@ -242,10 +241,11 @@
         }
 
         .iconos-boda-premium {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: var(--color-dorado);
             margin-bottom: 15px;
             display: inline-block;
+            font-weight: 300;
         }
 
         .mapa-recuadro {
@@ -254,7 +254,7 @@
             border-top: 1px solid #f0ede5;
         }
 
-        /* --- 4. CRONOGRAMA NUPCIAL --- */
+        /* --- 4. CRONOGRAMA NUPCIAL MINIMALISTA --- */
         .itinerario-seccion {
             background-color: #faf9f5;
         }
@@ -273,29 +273,30 @@
             margin: 50px auto 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nodo-itinerario {
             background: white;
             padding: 25px;
-            border-left: 3px solid var(--color-principal);
+            border-left: 2px solid var(--color-principal);
             text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 30px;
             transition: transform 0.3s ease;
         }
         .nodo-itinerario:hover {
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
         .nodo-itinerario .icon-box-boda {
             color: var(--color-dorado);
-            font-size: 2.2rem;
-            width: 50px;
+            font-size: 1.8rem;
+            width: 45px;
             text-align: center;
+            font-weight: 300;
         }
 
         .nodo-texto h4 {
@@ -318,10 +319,6 @@
             background: white;
             border: 1px solid #eae6dc;
             padding: 40px 30px;
-            transition: all 0.3s ease;
-        }
-        .tarjeta-detalle-premium:hover {
-            border-color: var(--color-dorado);
         }
 
         /* --- 6. RSVP CIERRE --- */
@@ -352,7 +349,7 @@
             background: white;
             padding: 10px;
             border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             cursor: pointer;
             z-index: 1000;
             width: 55px;
@@ -373,12 +370,12 @@
 </head>
 <body>
 
-    <!-- EFECTO CAÍDA DE HOJAS OLIVA DE FONDO -->
+    <!-- EFECTO CAÍDA DE HOJAS OLIVA SUTILEZA -->
     <div id="contenedor-hojas"></div>
 
     <!-- CONTROL DE AUDIO -->
     <div class="reproductor-flotante" onclick="toggleMusica()" id="btn-musica">
-        <i class="fa-solid fa-music"></i>
+        <i class="fa-regular fa-music"></i>
     </div>
     <audio id="musica-boda" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -410,7 +407,7 @@
         </div>
     </section>
 
-    <!-- 3. UBICACIÓN CON ENLACE DE NUEVA FOTO FACHADA -->
+    <!-- 3. UBICACIÓN -->
     <section>
         <h2>Lugar & Celebración</h2>
         <div class="adorno-floral">🌿</div>
@@ -418,8 +415,8 @@
         <div class="bloque-lugar">
             <div class="imagen-lugar-banner"></div>
             <div class="contenido-lugar">
-                <!-- Icono de Copas de Celebración -->
-                <i class="fa-solid fa-champagne-glasses iconos-boda-premium"></i>
+                <!-- Icono Lineal Elegante: Marcador de Ubicación Nupcial -->
+                <i class="fa-regular fa-map-location-dot iconos-boda-premium"></i>
                 <h3>Cava de Don Raúl</h3>
                 <div class="hora">Recepción — 14:00 HRS</div>
                 <p>Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
@@ -433,7 +430,7 @@
         </div>
     </section>
 
-    <!-- 4. CRONOGRAMA CON ICONOS EXCLUSIVOS DE BODA -->
+    <!-- 4. CRONOGRAMA CON ICONOS LINEALES DE BODA -->
     <section class="itinerario-seccion">
         <div class="anillos-cabecera"></div>
         <h2>Itinerario</h2>
@@ -442,32 +439,32 @@
 
         <div class="linea-tiempo-completa">
             <div class="nodo-itinerario">
-                <!-- Icono: Puerta Abierta / Campanas / Novios -->
-                <i class="fa-solid fa-bell icon-box-boda"></i>
+                <!-- Icono Lineal: Copas de Bienvenida -->
+                <i class="fa-regular fa-champagne-glasses icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:00 HRS</h4>
                     <p>Entrada de los Novios</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono: Brindis -->
-                <i class="fa-solid fa-clinking-glasses icon-box-boda"></i>
+                <!-- Icono Lineal: Descorche / Brindis -->
+                <i class="fa-regular fa-bottle-champagne icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>14:30 HRS</h4>
                     <p>Brindis de Honor</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono: Pastel de Bodas / Banquete -->
-                <i class="fa-solid fa-cake-candles icon-box-boda"></i>
+                <!-- Icono Lineal: Cubiertos Finos Banquete -->
+                <i class="fa-regular fa-utensils icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>15:00 HRS</h4>
                     <p>Comida Familiar</p>
                 </div>
             </div>
             <div class="nodo-itinerario">
-                <!-- Icono: Fiesta / Música de Boda -->
-                <i class="fa-solid fa-music icon-box-boda"></i>
+                <!-- Icono Lineal: Música / Celebración -->
+                <i class="fa-regular fa-compact-disc icon-box-boda"></i>
                 <div class="nodo-texto">
                     <h4>16:00 HRS</h4>
                     <p>¡Gran Apertura de la Fiesta!</p>
@@ -476,21 +473,23 @@
         </div>
     </section>
 
-    <!-- 5. DETALLES ADICIONALES -->
+    <!-- 5. NOTAS DE REQUISITOS -->
     <section style="background-color: #ffffff;">
         <h2>Notas Adicionales</h2>
         <div class="adorno-floral">🌿</div>
         
         <div class="tarjeta-detalles-container">
             <div class="tarjeta-detalle-premium">
-                <i class="fa-solid fa-user-tie iconos-boda-premium"></i>
+                <!-- Icono Lineal: Traje formal de etiqueta -->
+                <i class="fa-regular fa-user-tie iconos-boda-premium"></i>
                 <h3>Dress Code</h3>
                 <p><strong>HOMBRES: GUAYABERA</strong></p>
                 <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">Les pedimos amablemente reservar la gama del color blanco únicamente para la novia.</p>
             </div>
 
             <div class="tarjeta-detalle-premium">
-                <i class="fa-solid fa-envelope-open-text iconos-boda-premium"></i>
+                <!-- Icono Lineal: Sobre abierto de obsequio / Dinero -->
+                <i class="fa-regular fa-envelope-open iconos-boda-premium"></i>
                 <h3>Mesa de Regalos</h3>
                 <p>Agradecemos infinitamente su presencia. Si deseas otorgarnos un presente, su muestra de cariño puede ser por:</p>
                 <p style="font-weight: 500; color: var(--color-principal); margin-top: 5px;">Lluvia de sobres o Transferencia bancaria</p>
@@ -509,9 +508,8 @@
         </a>
     </section>
 
-    <!-- JAVASCRIPT: RELOJ + EFECTO VISUAL DE HOJAS CAYENDO -->
+    <!-- JAVASCRIPT ANIMACIONES Y RELOJ -->
     <script>
-        // Reloj Regresivo
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -536,7 +534,6 @@
             }
         }, 1000);
 
-        // Generador de Efecto Hojas Flotantes
         function crearHoja() {
             const contenedor = document.getElementById('contenedor-hojas');
             if (!contenedor) return;
@@ -545,18 +542,15 @@
             hoja.classList.add('fa-solid', 'fa-leaf', 'hoja-flotante');
             
             hoja.style.left = Math.random() * 100 + 'vw';
-            hoja.style.animationDuration = Math.random() * 5 + 5 + 's'; // Entre 5 y 10s
-            hoja.style.fontSize = Math.random() * 10 + 10 + 'px';
+            hoja.style.animationDuration = Math.random() * 5 + 6 + 's'; 
+            hoja.style.fontSize = Math.random() * 8 + 8 + 'px';
             
             contenedor.appendChild(hoja);
             
-            setTimeout(() => {
-                hoja.remove();
-            }, 10000);
+            setTimeout(() => { hoja.remove(); }, 11000);
         }
-        setInterval(crearHoja, 400); // Crea una hoja nueva cada 400ms
+        setInterval(crearHoja, 500); 
 
-        // Control de Audio
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const icon = document.querySelector("#btn-musica i");
