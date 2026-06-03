@@ -24,7 +24,7 @@
             --fuente-cuerpo: 'Montserrat', sans-serif;
         }
 
-        /* --- ESTILOS BASE Y ANIMACIONES --- */
+        /* --- ESTILOS BASE --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -45,7 +45,7 @@
         }
 
         section {
-            padding: 90px 20px;
+            padding: 95px 20px;
             position: relative;
         }
 
@@ -66,7 +66,6 @@
             color: #555;
         }
 
-        /* Hojas de olivo estilizadas como separador */
         .separador {
             font-family: var(--fuente-manuscrita);
             font-size: 2.8rem;
@@ -74,7 +73,6 @@
             margin: 5px auto 25px auto;
             user-select: none;
             display: block;
-            animation: fadeIn 2s ease-in;
         }
 
         .btn {
@@ -102,11 +100,12 @@
             box-shadow: 0 8px 20px rgba(74, 93, 47, 0.15);
         }
 
-        /* --- 1. PORTADA CINEMÁTICA (HERO) --- */
+        /* --- 1. PORTADA CON FOTO VIÑEDO --- */
         .portada {
             height: 100vh;
-            background: linear-gradient(rgba(44, 44, 44, 0.35), rgba(251, 251, 249, 0.1)), 
-                        url('https://images.unsplash.com/photo-1519225495810-7512c696505a?q=80&w=1600') no-repeat center center/cover;
+            /* FOTO VIÑEDO VALLE DE GUADALUPE directa */
+            background: linear-gradient(rgba(44, 44, 44, 0.45), rgba(44, 44, 44, 0.2)), 
+                        url('https://lh3.googleusercontent.com/d/1IuD4lf6eAdea-aBjAUxAYDptXkFpNUGS') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -131,7 +130,7 @@
             color: var(--texto-claro);
             margin: 10px 0;
             line-height: 1.1;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.4);
         }
 
         .portada .ampersand {
@@ -152,9 +151,11 @@
             color: var(--texto-claro);
         }
 
-        /* --- 2. CONTADOR REFINADO --- */
+        /* --- 2. CONTADOR CON FOTO NOVIOS DE LA MANO --- */
         .contador-seccion {
-            background-color: #f4f2ec;
+            /* FOTO NOVIOS DE LA MANO sutil de fondo */
+            background: linear-gradient(rgba(244, 242, 236, 0.85), rgba(244, 242, 236, 0.9)),
+                        url('https://lh3.googleusercontent.com/d/1IDRbAhVbwe6J_CLx1PbfZgXIk1diQsza') no-repeat center center/cover;
             border-bottom: 1px solid #e9e5db;
         }
 
@@ -180,8 +181,8 @@
             padding: 20px 15px;
             border-radius: 12px;
             min-width: 85px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            border: 1px solid rgba(143, 151, 121, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(143, 151, 121, 0.2);
             transition: transform 0.3s ease;
         }
 
@@ -206,26 +207,32 @@
             margin-top: 8px;
         }
 
-        /* --- 3. SECCIÓN UBICACIÓN Y MAPA --- */
-        .ubicacion-seccion {
-            background: linear-gradient(rgba(251, 251, 249, 0.94), rgba(251, 251, 249, 0.94)),
-                        url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200') no-repeat center center/cover;
-        }
-
+        /* --- 3. SECCIÓN UBICACIÓN CON FOTO FACHADA --- */
         .tarjeta-evento {
             background: white;
             max-width: 550px;
             margin: 35px auto;
-            padding: 45px 35px;
             border-radius: 16px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.04);
             border: 1px solid #eeebe3;
+            overflow: hidden;
+        }
+
+        .tarjeta-info-contenido {
+            padding: 40px 35px 25px 35px;
+        }
+
+        .foto-tarjeta-lugar {
+            width: 100%;
+            height: 220px;
+            /* FOTO CAVA DE DON RAUL FACHADA */
+            background: url('https://lh3.googleusercontent.com/d/1hMJhq9adiab4b8KoAHim4Au88faIteyj') no-repeat center center/cover;
         }
 
         .tarjeta-evento .icono {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--color-dorado);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .tarjeta-evento h3 {
@@ -246,12 +253,8 @@
 
         .contenedor-mapa {
             width: 100%;
-            height: 250px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 25px;
-            border: 1px solid #e5e0d4;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            height: 230px;
+            border-top: 1px solid #eeebe3;
         }
 
         .contenedor-mapa iframe {
@@ -260,10 +263,21 @@
             border: 0;
         }
 
-        /* --- 4. ITINERARIO VISUAL --- */
+        /* --- 4. ITINERARIO CON FOTO ANILLOS --- */
         .itinerario-seccion {
             background-color: #faf8f4;
             border-top: 1px solid #f0ede5;
+        }
+
+        .imagen-decorativa-itinerario {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            /* FOTO ANILLOS DE BODA */
+            background: url('https://lh3.googleusercontent.com/d/1uWXlDjyxg2wikofdshT2XdFBtHtJsQ_F') no-repeat center center/cover;
+            border: 2px solid var(--color-dorado);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
         }
 
         .timeline {
@@ -287,7 +301,6 @@
         .timeline-item {
             position: relative;
             margin-bottom: 35px;
-            transition: all 0.3s ease;
         }
 
         .timeline-item::before {
@@ -317,7 +330,7 @@
             font-weight: 400;
         }
 
-        /* --- 5. DETALLES ADICIONALES --- */
+        /* --- 5. DETALLES IMPORTANTES --- */
         .info-bloque {
             background-color: #ffffff;
             border-top: 1px solid #f0ede5;
@@ -327,13 +340,13 @@
         .info-grid {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 35px;
             max-width: 600px;
             margin: 40px auto 0 auto;
         }
 
         .info-card {
-            padding: 30px;
+            padding: 35px 30px;
             background: #fbfbf9;
             border-radius: 12px;
             border: 1px solid #f0ede5;
@@ -347,10 +360,11 @@
             color: var(--color-principal);
         }
 
-        /* --- 6. RSVP / CONFIRMACIÓN --- */
+        /* --- 6. RSVP CON FOTO DOMO --- */
         .rsvp {
-            background: linear-gradient(rgba(74, 93, 47, 0.9), rgba(40, 54, 24, 0.95)),
-                        url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200') no-repeat center center/cover;
+            /* FOTO CAVA DE DON RAUL DOMO de fondo elegante */
+            background: linear-gradient(rgba(74, 93, 47, 0.88), rgba(40, 54, 24, 0.92)),
+                        url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
             color: var(--texto-claro);
         }
 
@@ -366,7 +380,7 @@
             background-color: #ffffff;
             color: var(--color-principal);
             font-weight: 500;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .rsvp .btn-whatsapp:hover {
@@ -414,13 +428,13 @@
         <div class="frase-inicial">Nuestra Boda</div>
         <h1>Agustín <span class="ampersand">&</span> Mirian</h1>
         <div class="separador">🌿</div>
-        <p style="font-style: italic; font-size: 1.15rem; margin-bottom: 20px; color: rgba(255,255,255,0.9);">
+        <p style="font-style: italic; font-size: 1.15rem; margin-bottom: 20px; color: rgba(255,255,255,0.95);">
             Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres.
         </p>
         <div class="fecha">24 . JULIO . 2025</div>
     </section>
 
-    <!-- 2. CUENTA REGRESIVA AUTOMATIZADA -->
+    <!-- 2. CUENTA REGRESIVA -->
     <section class="contador-seccion">
         <h3>Falta muy poco para el gran día...</h3>
         <div class="reloj">
@@ -449,16 +463,21 @@
         <div class="separador">🌿</div>
         
         <div class="tarjeta-evento">
-            <div class="icono">🥂</div>
-            <h3>Recepción</h3>
-            <div class="hora">Los esperamos a las 14:00 HRS</div>
-            <p><strong>Cava de Don Raúl</strong></p>
-            <p style="color: #666; font-size: 0.95rem; margin-bottom: 15px;">
-                Callejon de la Liebre, 22755 El Porvenir, B.C.
-            </p>
-            <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Abrir en Google Maps</a>
+            <!-- Foto de la Fachada insertada en la cabecera de la tarjeta -->
+            <div class="foto-tarjeta-lugar"></div>
             
-            <!-- Mapa Interactivo Integrado basado en El Porvenir, Valle de Guadalupe -->
+            <div class="tarjeta-info-contenido">
+                <div class="icono">🥂</div>
+                <h3>Recepción</h3>
+                <div class="hora">Los esperamos a las 14:00 HRS</div>
+                <p><strong>Cava de Don Raúl</strong></p>
+                <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">
+                    Callejon de la Liebre, 22755 El Porvenir, B.C.
+                </p>
+                <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn">Abrir en Google Maps</a>
+            </div>
+            
+            <!-- Mapa Integrado -->
             <div class="contenedor-mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -467,6 +486,9 @@
 
     <!-- 4. CRONOGRAMA / ITINERARIO -->
     <section class="itinerario-seccion">
+        <!-- Imagen redonda de los anillos arriba del itinerario -->
+        <div class="imagen-decorativa-itinerario"></div>
+        
         <h2>Itinerario del Día</h2>
         <div class="separador">🌿</div>
         <p>No te pierdas ningún momento especial de nuestra celebración 🕓</p>
@@ -515,13 +537,13 @@
         </div>
     </section>
 
-    <!-- 6. RSVP / CONFIRMACIÓN CON TU NÚMERO -->
+    <!-- 6. RSVP / CONFIRMACIÓN -->
     <section class="rsvp">
         <h2>Confirmación de Asistencia</h2>
         <div class="separador" style="color: var(--color-dorado);">🌿</div>
         <p>Para ayudarnos a organizar una velada perfecta, por favor confímanos tu asistencia.</p>
         
-        <!-- Enlace configurado perfectamente con tu número +52 1 222 816 1200 -->
+        <!-- Enlace directo configurado con tu número -->
         <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn rsvp-btn btn-whatsapp">
             Confirmar por WhatsApp
         </a>
@@ -529,7 +551,7 @@
 
     <!-- --- JAVASCRIPT --- -->
     <script>
-        // 1. Configuración de la Fecha Objetivo (24 de Julio del 2025)
+        // Configuración de la Fecha Objetivo (24 de Julio del 2025)
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -554,7 +576,6 @@
             }
         }, 1000);
 
-        // 2. Control de Audio
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const btn = document.getElementById("btn-musica");
