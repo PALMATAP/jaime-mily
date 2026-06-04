@@ -44,12 +44,12 @@
             background: #111;
         }
 
-        /* Bloque Superior: Imagen en pantalla completa */
+        /* Bloque Superior: Imagen en pantalla completa con nueva foto de encabezado */
         .hero-imagen {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), 
-                        url('https://lh3.googleusercontent.com/d/1IuD4lf6eAdea-aBjAUxAYDptXkFpNUGS') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.2)), 
+                        url('https://lh3.googleusercontent.com/d/1KU303ozfyF-n_yJYZ-ID0G4oZGSDmYry') no-repeat center center/cover;
             z-index: 1;
         }
 
@@ -73,19 +73,24 @@
 
         .hero-texto-contenedor h1 {
             font-family: var(--fuente-editorial);
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             font-weight: 400;
             color: #ffffff;
-            line-height: 1;
+            line-height: 1.1;
             letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .hero-texto-contenedor .fecha-badge {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            letter-spacing: 4px;
+            margin-top: 25px;
+            font-size: 1.4rem;
+            letter-spacing: 6px;
             color: var(--color-acento);
-            font-weight: 300;
+            font-weight: 400;
+            display: inline-block;
+            border-bottom: 1px solid var(--color-acento);
+            padding-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
 
         /* --- SECCIÓN LAYOUT EDITORIAL (HISTORIA + RELOJ) --- */
@@ -121,22 +126,23 @@
             padding: 40px;
         }
 
-        /* Contador Flotante Estilo Editorial */
+        /* Contador Flotante Activo */
         .contador-moderno {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: 30px;
+            padding: 35px 30px;
             width: 100%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             text-align: center;
             border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
         .caja-reloj h4 {
             font-family: var(--fuente-editorial);
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 400;
             color: var(--color-vanguardia);
             line-height: 1;
@@ -146,11 +152,12 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #666;
-            margin-top: 5px;
+            color: #555;
+            margin-top: 8px;
+            font-weight: 600;
         }
 
-        /* --- DESTINO Y DETALLES (FOTO RESALTADA DE LADO) --- */
+        /* --- DESTINO Y DETALLES --- */
         .seccion-destino {
             padding: 120px 5%;
             max-width: 1200px;
@@ -189,10 +196,10 @@
         .marco-editorial-foto img {
             width: 100%;
             display: block;
-            filter: grayscale(15%);
+            filter: grayscale(10%);
         }
 
-        /* MAPA FULL WIDTH INTEGRADO INTERACTIVAMENTE */
+        /* MAPA INTERACTIVO */
         .mapa-bloque-vanguardia {
             width: 100%;
             height: 350px;
@@ -200,7 +207,7 @@
             border: 1px solid #e2ded5;
         }
 
-        /* --- CRONOGRAMA MINIMALISTA REFINADO --- */
+        /* --- CRONOGRAMA --- */
         .seccion-itinerario {
             background: #1e2616;
             color: #ffffff;
@@ -255,7 +262,7 @@
             line-height: 1.2;
         }
 
-        /* --- DETALLES DE PROTOCOLO --- */
+        /* --- DETALLES DE PROTOCOLO CORREGIDOS --- */
         .seccion-protocolo {
             padding: 120px 20px;
             max-width: 1000px;
@@ -274,6 +281,7 @@
             padding: 50px;
             text-align: left;
             border-bottom: 4px solid var(--color-vanguardia);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         .bloque-editorial-protocolo h3 {
@@ -304,7 +312,7 @@
             border-color: var(--color-vanguardia);
         }
 
-        /* --- RSVP MAGNO --- */
+        /* --- RSVP MAGNO CON SU NÚMERO --- */
         .rsvp-magno {
             height: 70vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
@@ -321,6 +329,7 @@
             color: white;
             font-size: 4rem;
             margin-bottom: 15px;
+            font-family: var(--fuente-editorial);
         }
 
         .btn-wa-editorial {
@@ -341,7 +350,7 @@
             transform: translateY(-3px);
         }
 
-        /* REPRODUCTOR */
+        /* REPRODUCTOR ACÚSTICO */
         .musica-editorial {
             position: fixed;
             top: 30px; right: 30px;
@@ -349,10 +358,10 @@
             width: 45px; height: 45px;
             display: flex; align-items: center; justify-content: center;
             border-radius: 50%; z-index: 1000; cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e2ded5;
         }
 
-        /* --- RESPONSIVIDAD COMPLETA --- */
         @media (max-width: 900px) {
             .seccion-split { grid-template-columns: 1fr; }
             .split-der { height: 450px; }
@@ -366,15 +375,16 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR FLOTANTE -->
+    <!-- REPRODUCTOR FLOTANTE DE BODA -->
     <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica">
         <i class="fa-solid fa-play" style="font-size: 0.9rem; color: var(--color-vanguardia);"></i>
     </div>
+    <!-- Enlace de audio nativo de Google Drive provisto para el evento -->
     <audio id="musica-boda" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://lh3.googleusercontent.com/d/1akpPepcAtfI_RK5844XMpvGUFZDwOr35" type="audio/mpeg">
     </audio>
 
-    <!-- 1. PORTADA EDITORIAL MAGNA -->
+    <!-- 1. PORTADA EDITORIAL CON NUEVA IMAGEN -->
     <header class="hero-editorial">
         <div class="hero-imagen"></div>
         <div class="hero-texto-contenedor">
@@ -384,7 +394,7 @@
         </div>
     </header>
 
-    <!-- 2. SPLIT LAYOUT: HISTORIA + CONTADOR -->
+    <!-- 2. SPLIT LAYOUT: HISTORIA + CONTADOR ACTIVO -->
     <section class="seccion-split">
         <div class="split-izq">
             <h2>Nuestra Unión</h2>
@@ -392,7 +402,7 @@
             <p style="font-style: italic; margin-top: 15px; color: var(--color-acento);">— Compartamos este viaje</p>
         </div>
         <div class="split-der">
-            <!-- Cuenta regresiva integrada en bloque translúcido -->
+            <!-- Cuenta regresiva tipo reloj operativa hacia el 24 de Julio 2025 -->
             <div class="contador-moderno">
                 <div class="caja-reloj"><h4 id="dias">00</h4><p>Días</p></div>
                 <div class="caja-reloj"><h4 id="horas">00</h4><p>Hrs</p></div>
@@ -402,7 +412,7 @@
         </div>
     </section>
 
-    <!-- 3. DESTINO CON ASIMETRÍA DE IMAGEN -->
+    <!-- 3. DESTINO -->
     <section class="seccion-destino">
         <div class="destino-info">
             <div class="hora-tag">Los Esperamos — 14:00 HRS</div>
@@ -412,7 +422,6 @@
             <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn-editorial">Abrir Ruta GPS</a>
         </div>
         <div class="marco-editorial-foto">
-            <!-- FOTO CAVA DE DON RAUL FACHADA -->
             <img src="https://lh3.googleusercontent.com/d/1xc-jmtj-Ma7eLZaUAcalVnauoLXoHrn3" alt="Cava de Don Raúl">
         </div>
     </section>
@@ -422,12 +431,12 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- 4. ITINERARIO EDITORIAL HORIZONTAL / CUADRÍCULA -->
+    <!-- 4. ITINERARIO -->
     <section class="seccion-itinerario">
         <h2>El Cronograma</h2>
         <div class="itinerario-grid-editorial">
             <div class="tarjeta-itinerario-editorial">
-                <i class="fa-light fa-sparkles"><i class="fa-solid fa-glass-water"></i></i>
+                <i class="fa-solid fa-glass-water"></i>
                 <h4>14:00 HRS</h4>
                 <p>Entrada</p>
             </div>
@@ -449,14 +458,15 @@
         </div>
     </section>
 
-    <!-- 5. NOTAS ADICIONALES DE BLOQUES LIMPIOS -->
+    <!-- 5. NOTAS DE PROTOCOLO CORREGIDAS -->
     <section class="seccion-protocolo">
         <h2 style="font-family: var(--fuente-editorial); color: var(--color-vanguardia);">Información Adicional</h2>
         <div class="grid-protocolo">
             <div class="bloque-editorial-protocolo">
                 <h3>Código de Vestimenta</h3>
-                <p><strong>HOMBRES: GUAYABERA</strong></p>
-                <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Les solicitamos reservar las gamas de color blanco estrictamente para la novia.</p>
+                <p><strong>Dress code : Cóctel campestre.</strong></p>
+                <p style="margin-top: 5px; font-weight: 500;">Hombres: Opcional Guayabera</p>
+                <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Mujeres : Reservar las gamas de color blanco para la novia.</p>
             </div>
             <div class="bloque-editorial-protocolo">
                 <h3>Mesa de Regalos</h3>
@@ -466,15 +476,17 @@
         </div>
     </section>
 
-    <!-- 6. RSVP CIERRE DE ALTO CONTRASTE -->
+    <!-- 6. RSVP CON NÚMERO SOLICITADO -->
     <section class="rsvp-magno">
         <h2>¿Nos Acompañas?</h2>
         <p style="margin-bottom: 30px; font-weight: 300; letter-spacing: 1px;">Tu presencia hará este día aún más perfecto.</p>
-        <a href="https://wa.me/5212228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn-wa-editorial">Confirmar Asistencia</a>
+        <!-- Enlace parametrizado directamente al WhatsApp 522228161200 -->
+        <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn-wa-editorial">Confirmar Asistencia</a>
     </section>
 
-    <!-- SCRIPT DEL RELOJ -->
+    <!-- SCRIPT TÉCNICO OPERATIVO -->
     <script>
+        // Configuración de la Fecha Programada (24 de Julio del 2025, 14:00 hrs)
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -499,12 +511,13 @@
             }
         }, 1000);
 
+        // Control de Reproducción de Audio Core
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const icon = document.querySelector("#btn-musica i");
             
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(err => console.log("Se requiere interacción inicial del usuario con el sitio para reproducir audio."));
                 icon.className = "fa-solid fa-pause";
             } else {
                 audio.pause();
