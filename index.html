@@ -123,6 +123,13 @@
             margin-bottom: 30px;
         }
 
+        .split-izq p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 580px;
+            color: #2a2a2a;
+        }
+
         .split-der {
             background: linear-gradient(rgba(245, 244, 240, 0.35), rgba(245, 244, 240, 0.35)),
                         url('https://lh3.googleusercontent.com/d/1IDRbAhVbwe6J_CLx1PbfZgXIk1diQsza') no-repeat center center/cover;
@@ -381,7 +388,7 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR FLOTANTE CON NUEVA ENLACE DE MÚSICA SOLICITADO -->
+    <!-- REPRODUCTOR FLOTANTE CON TU ENLACE DE MÚSICA -->
     <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica">
         <i class="fa-solid fa-play" style="font-size: 0.9rem; color: var(--color-vanguardia);"></i>
     </div>
@@ -485,6 +492,7 @@
     <section class="rsvp-magno">
         <h2>¿Nos Acompañas?</h2>
         <p style="margin-bottom: 30px; font-weight: 300; letter-spacing: 1px;">Tu presencia hará este día aún más perfecto.</p>
+        <!-- Enlace parametrizado directamente al WhatsApp 522228161200 -->
         <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian.%20%C2%A1Ah%C3%AD%20nos%20vemos%21" target="_blank" class="btn-wa-editorial">Confirmar Asistencia</a>
     </section>
 
@@ -495,12 +503,13 @@
 
         const intervalo = setInterval(function() {
             const ahora = new Date().getTime();
-            const diferencia = fechaBoda - ahora;
+            const diferencia = fechaBoda - now = new Date().getTime();
+            const dist = fechaBoda - ahora;
 
-            const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((dist % (1000 * 60)) / 1000);
 
             if (document.getElementById("dias")) {
                 document.getElementById("dias").innerText = d < 10 && d >= 0 ? "0" + d : (d < 0 ? "00" : d);
@@ -509,19 +518,18 @@
                 document.getElementById("segundos").innerText = s < 10 && s >= 0 ? "0" + s : (s < 0 ? "00" : s);
             }
 
-            if (diferencia < 0) {
+            if (dist < 0) {
                 clearInterval(intervalo);
                 document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2rem; color:var(--color-vanguardia);'>¡Llegó el gran día! 🎉</div>";
             }
         }, 1000);
 
-        // Control de Reproducción de Audio Core
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const icon = document.querySelector("#btn-musica i");
             
             if (audio.paused) {
-                audio.play().catch(err => console.log("Se requiere interacción inicial del usuario con el sitio para reproducir audio."));
+                audio.play().catch(err => console.log("Audio play deferred."));
                 icon.className = "fa-solid fa-pause";
             } else {
                 audio.pause();
