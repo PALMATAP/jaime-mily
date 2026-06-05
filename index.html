@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agustín & Mirian — La Boda</title>
     
+    <!-- Fuentes de Vanguardia Editorial -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100;300;400;500;600&display=swap" rel="stylesheet">
@@ -29,45 +30,6 @@
             color: var(--texto-editorial);
             line-height: 1.7;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* --- EFECTO HOJAS CAYENDO --- */
-        #contenedor-hojas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 99;
-            overflow: hidden;
-        }
-
-        .hoja {
-            position: absolute;
-            background-size: contain;
-            background-no-repeat: no-repeat;
-            opacity: 0.6;
-            pointer-events: none;
-            animation: caer linear infinite;
-        }
-
-        @keyframes caer {
-            0% {
-                transform: translateY(-50px) rotate(0deg) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(105vh) rotate(720deg) translateX(100px);
-                opacity: 0;
-            }
         }
 
         /* --- PORTADA ASIMÉTRICA --- */
@@ -259,4 +221,319 @@
         }
 
         .marco-editorial-foto:hover img {
-            transform: scale(1
+            transform: scale(1.04);
+        }
+
+        .marco-editorial-foto:hover {
+            box-shadow: 18px 18px 0px var(--color-acento);
+        }
+
+        .mapa-bloque-vanguardia {
+            width: 100%; height: 380px; margin-top: 50px; border: 1px solid #e2ded5;
+            filter: grayscale(10%) contrast(95%);
+            transition: filter 0.4s ease;
+        }
+        .mapa-bloque-vanguardia:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        /* --- CRONOGRAMA REFINADO --- */
+        .seccion-itinerario {
+            background: #1e2616; color: #ffffff; padding: 140px 20px;
+        }
+
+        .seccion-itinerario h2 {
+            font-family: var(--fuente-editorial); font-size: 3.8rem; margin-bottom: 70px; text-align: center;
+            font-weight: 400; letter-spacing: 2px;
+        }
+
+        .itinerario-grid-editorial {
+            max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;
+        }
+
+        .tarjeta-itinerario-editorial {
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            padding: 50px 25px; 
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .tarjeta-itinerario-editorial:hover {
+            background: rgba(255, 255, 255, 0.07); 
+            border-color: var(--color-acento);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .icon-svg {
+            width: 36px;
+            height: 36px;
+            fill: none;
+            stroke: var(--color-acento);
+            stroke-width: 1.2;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+        
+        .tarjeta-itinerario-editorial:hover .icon-svg {
+            transform: scale(1.1);
+        }
+
+        .tarjeta-itinerario-editorial h4 { font-size: 0.95rem; letter-spacing: 3px; margin-bottom: 12px; color: #d5d0c5; font-weight: 400; }
+        .tarjeta-itinerario-editorial p { font-family: var(--fuente-editorial); font-size: 1.6rem; line-height: 1.2; font-weight: 300; }
+
+        /* --- PROTOCOLO REFINADO --- */
+        .seccion-protocolo { padding: 140px 20px; max-width: 1050px; margin: 0 auto; text-align: center; }
+        .seccion-protocolo h2 { font-family: var(--fuente-editorial); font-size: 3.5rem; margin-bottom: 50px; color: var(--color-vanguardia); }
+        .grid-protocolo { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        
+        .bloque-editorial-protocolo {
+            background: var(--color-bloque-muro); padding: 60px 50px; text-align: left; 
+            border-bottom: 4px solid var(--color-vanguardia); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.4s ease;
+        }
+
+        .bloque-editorial-protocolo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-bottom-color: var(--color-acento);
+        }
+
+        .bloque-editorial-protocolo h3 { font-family: var(--fuente-editorial); font-size: 2.2rem; margin-bottom: 20px; color: var(--color-vanguardia); }
+        
+        .icon-protocolo-svg {
+            width: 42px;
+            height: 42px;
+            fill: none;
+            stroke: var(--color-vanguardia);
+            stroke-width: 1.2;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .btn-editorial {
+            display: inline-block; background: transparent; color: var(--texto-editorial); border: 1px solid var(--texto-editorial); padding: 16px 38px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; margin-top: 25px; transition: all 0.3s ease;
+        }
+        .btn-editorial:hover { background: var(--color-vanguardia); color: white; border-color: var(--color-vanguardia); }
+
+        /* --- RSVP MAGNO --- */
+        .rsvp-magno {
+            height: 75vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 20px;
+            text-align: center;
+        }
+
+        .rsvp-magno h2 { color: white; font-size: 4.5rem; margin-bottom: 20px; font-family: var(--fuente-editorial); font-weight: 400; }
+        .btn-wa-editorial {
+            background: var(--color-acento); color: white; border: none; padding: 20px 50px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; font-weight: 600; box-shadow: 0 10px 30px rgba(163, 132, 70, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .btn-wa-editorial:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(163, 132, 70, 0.5); }
+
+        /* REPRODUCTOR ULTRA-MINIMALISTA CON ONDAS EXPANSIVAS */
+        .musica-editorial {
+            position: fixed; top: 35px; right: 35px; background: white; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 1000; cursor: pointer; border: 1px solid #e2ded5;
+            box-shadow: 0 0 0 0 rgba(163, 132, 70, 0.35);
+            animation: ondasRomanticas 2s infinite cubic-bezier(0.25, 0, 0, 1);
+            transition: all 0.3s ease;
+        }
+        
+        .musica-editorial:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes ondasRomanticas {
+            0% { box-shadow: 0 0 0 0 rgba(163, 132, 70, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(163, 132, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(163, 132, 70, 0); }
+        }
+
+        .icon-player-svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--color-vanguardia);
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 900px) {
+            .seccion-split { grid-template-columns: 1fr; }
+            .split-der { height: 450px; }
+            .seccion-destino { grid-template-columns: 1fr; gap: 50px; padding: 90px 5%; }
+            .itinerario-grid-editorial { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .grid-protocolo { grid-template-columns: 1fr; gap: 30px; }
+            .hero-texto-contenedor h1 { font-size: 4.2rem; }
+            .hero-texto-contenedor .fecha-badge { font-size: 1.8rem; padding: 10px 30px; letter-spacing: 6px; }
+            .rsvp-magno h2 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- REPRODUCTOR FLOTANTE CON EFECTO DE ONDAS -->
+    <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica" title="Ambientar con música">
+        <svg class="icon-player-svg" id="player-svg-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    
+    <!-- Balada romántica en piano y cuerdas de alta definición -->
+    <audio id="musica-boda" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- PORTADA MAESTRA MONUMENTAL -->
+    <header class="hero-editorial">
+        <div class="hero-imagen"></div>
+        <div class="hero-texto-contenedor">
+            <span>Nuestra Celebración</span>
+            <h1>Agustín & Mirian</h1>
+            <div class="fecha-badge">24 . JULIO . 2025</div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN CRONÓMETRO -->
+    <section class="seccion-split">
+        <div class="split-izq">
+            <h2>Nuestra Unión</h2>
+            <p>Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres. Hemos preparado este espacio para compartir cada detalle con ustedes de manera muy especial.</p>
+        </div>
+        <div class="split-der">
+            <div class="contador-moderno">
+                <div class="caja-reloj"><h4 id="dias">00</h4><p>Días</p></div>
+                <div class="caja-reloj"><h4 id="horas">00</h4><p>Hrs</p></div>
+                <div class="caja-reloj"><h4 id="minutos">00</h4><p>Min</p></div>
+                <div class="caja-reloj"><h4 id="segundos">00</h4><p>Seg</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="seccion-destino">
+        <div class="destino-info">
+            <div class="hora-tag">Los Esperamos — 14:00 HRS</div>
+            <h3>Cava de Don Raúl</h3>
+            <p>Un espacio rodeado por la magia del Valle de Guadalupe, diseñado detalladamente para vivir momentos memorables e inolvidables.</p>
+            <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
+            <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn-editorial">Abrir Ruta GPS</a>
+        </div>
+        <div class="marco-editorial-foto">
+            <img src="https://lh3.googleusercontent.com/d/1xc-jmtj-Ma7eLZaUAcalVnauoLXoHrn3" alt="Cava de Don Raúl">
+        </div>
+    </section>
+
+    <!-- MAPA INTEGRADO -->
+    <div class="mapa-bloque-vanguardia">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- CRONOGRAMA REFINADO CON ICONOS SVG MINIMALISTAS LINEALES -->
+    <section class="seccion-itinerario">
+        <h2>El Cronograma</h2>
+        <div class="itinerario-grid-editorial">
+            <div class="tarjeta-itinerario-editorial">
+                <!-- Icono Línea: Entrada / Recepción -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h4>14:00 HRS</h4>
+                <p>Entrada</p>
+            </div>
+            <div class="tarjeta-itinerario-editorial">
+                <!-- Icono Línea: Brindis / Copas -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12h14M5 12a7 7 0 0 1 14 0Z"/><path d="M9 22h6"/></svg>
+                <h4>14:30 HRS</h4>
+                <p>Brindis</p>
+            </div>
+            <div class="tarjeta-itinerario-editorial">
+                <!-- Icono Línea: Banquete / Plato -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+                <h4>15:00 HRS</h4>
+                <p>Comida</p>
+            </div>
+            <div class="tarjeta-itinerario-editorial">
+                <!-- Icono Línea: Celebración / Nota Musical -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="16.5" r="2.5"/></svg>
+                <h4>16:00 HRS</h4>
+                <p>Fiesta</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROTOCOLO ADICIONAL -->
+    <section class="seccion-protocolo">
+        <h2>Información Adicional</h2>
+        <div class="grid-protocolo">
+            <div class="bloque-editorial-protocolo">
+                <!-- Icono Línea: Esmoquin / Vestimenta -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l1 7-7 4-7-4z"/><path d="M12 14v8M8 22h8"/></svg>
+                <h3>Código de Vestimenta</h3>
+                <p><strong>Dress code : Cóctel campestre.</strong></p>
+                <p style="margin-top: 5px; font-weight: 500; color: var(--color-acento);">Hombres: Opcional Guayabera</p>
+                <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Mujeres : Reservar las gamas de color blanco estrictamente para la novia.</p>
+            </div>
+            <div class="bloque-editorial-protocolo">
+                <!-- Icono Línea: Sobre Abierto -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <h3>Mesa de Regalos</h3>
+                <p>Agradecemos infinitamente su grata presencia. Si desean realizar un presente, nuestra modalidad elegida es:</p>
+                <p style="font-weight: 600; color: var(--color-acento); margin-top: 10px;">Lluvia de Sobres o Transferencia Bancaria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP MAESTRO -->
+    <section class="rsvp-magno">
+        <h2>¿Nos Acompañas?</h2>
+        <p style="margin-bottom: 35px; font-weight: 300; letter-spacing: 2px;">Tu valiosa presencia hará este día aún más perfecto.</p>
+        <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian." target="_blank" class="btn-wa-editorial">
+            <svg style="width:18px; height:18px; fill:white;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.451 5.407 1.453 5.457 0 9.897-4.442 9.902-9.899.002-2.643-1.022-5.127-2.887-6.995C17.195 1.846 14.71 .82 12.067.82c-5.462 0-9.904 4.441-9.909 9.899-.001 1.939.504 3.83 1.464 5.474L2.6 20.53l4.047-1.376z"/></svg>
+            Confirmar Asistencia
+        </a>
+    </section>
+
+    <!-- LOGICA SÍNCRONA INTEGRADA -->
+    <script>
+        // Configuración de la Cuenta Regresiva (24 de Julio del 2025, 14:00 hrs)
+        const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
+
+        const intervalo = setInterval(function() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaBoda - ahora;
+
+            const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            if (document.getElementById("dias")) {
+                document.getElementById("dias").innerText = d < 10 && d >= 0 ? "0" + d : (d < 0 ? "00" : d);
+                document.getElementById("horas").innerText = h < 10 && h >= 0 ? "0" + h : (h < 0 ? "00" : h);
+                document.getElementById("minutos").innerText = m < 10 && m >= 0 ? "0" + m : (m < 0 ? "00" : m);
+                document.getElementById("segundos").innerText = s < 10 && s >= 0 ? "0" + s : (s < 0 ? "00" : s);
+            }
+
+            if (diferencia < 0) {
+                clearInterval(intervalo);
+                document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2.2rem; color:var(--color-vanguardia); letter-spacing:1px;'>¡Llegó el gran día!</div>";
+            }
+        }, 1000);
+
+        // Sistema de Control Multimedia Conmutado
+        function toggleMusica() {
+            const audio = document.getElementById("musica-boda");
+            const svgIcon = document.getElementById("player-svg-icon");
+            
+            if (audio.paused) {
+                audio.play().catch(err => console.log("La API del navegador exige interacción del usuario previa."));
+                // Mutación a Icono de Pausa Minimalista
+                svgIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+            } else {
+                audio.pause();
+                // Regreso a Icono de Play
+                svgIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            }
+        }
+    </script>
+</body>
+</html>
