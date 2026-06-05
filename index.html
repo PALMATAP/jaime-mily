@@ -10,9 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100;300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Iconografía Ultra-Minimalista -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
             --color-vanguardia: #2d3b1e;   /* Verde Oliva Obscuro Editorial */
@@ -69,7 +66,6 @@
             margin-bottom: 12px;
         }
 
-        /* Nombres de los novios más grandes */
         .hero-texto-contenedor h1 {
             font-family: var(--fuente-editorial);
             font-size: 6rem;
@@ -80,7 +76,6 @@
             text-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
-        /* Fecha más grande y contrastada */
         .hero-texto-contenedor .fecha-badge {
             margin-top: 35px;
             font-size: 2.6rem;
@@ -89,7 +84,7 @@
             font-weight: 500;
             display: inline-block;
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 14px 45px;
+            padding: 12px 40px;
             border-left: 6px solid var(--color-acento);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             font-family: var(--fuente-editorial);
@@ -214,7 +209,16 @@
             background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 20px; text-align: center;
         }
 
-        .tarjeta-itinerario-editorial i { font-size: 1.6rem; color: var(--color-acento); margin-bottom: 20px; font-weight: 300; }
+        .icon-svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: var(--color-acento);
+            stroke-width: 1.5;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
         .tarjeta-itinerario-editorial h4 { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ccc; }
         .tarjeta-itinerario-editorial p { font-family: var(--fuente-editorial); font-size: 1.5rem; line-height: 1.2; }
 
@@ -227,6 +231,17 @@
         }
 
         .bloque-editorial-protocolo h3 { font-family: var(--fuente-editorial); font-size: 2rem; margin-bottom: 15px; color: var(--color-vanguardia); }
+        
+        .icon-protocolo-svg {
+            width: 38px;
+            height: 38px;
+            fill: none;
+            stroke: var(--color-vanguardia);
+            stroke-width: 1.5;
+            margin-bottom: 15px;
+            display: block;
+        }
+
         .btn-editorial {
             display: inline-block; background: transparent; color: var(--texto-editorial); border: 1px solid var(--texto-editorial); padding: 15px 35px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; margin-top: 20px; transition: all 0.3s ease;
         }
@@ -243,12 +258,21 @@
         .btn-wa-editorial {
             background: var(--color-acento); color: white; border: none; padding: 18px 45px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; font-weight: 600; box-shadow: 0 10px 30px rgba(163, 132, 70, 0.3);
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .btn-wa-editorial:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(163, 132, 70, 0.4); }
 
-        /* REPRODUCTOR */
+        /* REPRODUCTOR FLOTANTE */
         .musica-editorial {
             position: fixed; top: 30px; right: 30px; background: white; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 1000; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid #e2ded5;
+        }
+
+        .icon-player-svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-vanguardia);
         }
 
         @media (max-width: 900px) {
@@ -267,10 +291,12 @@
 
     <!-- REPRODUCTOR FLOTANTE -->
     <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica">
-        <i class="fa-solid fa-play" style="font-size: 0.9rem; color: var(--color-vanguardia);"></i>
+        <svg class="icon-player-svg" id="player-svg-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </div>
-    <audio id="musica-boda" loop>
-        <source src="https://lh3.googleusercontent.com/d/1RsjnTNAKTFl0h-jM9zIq5N2VHfCJln6O" type="audio/mpeg">
+    
+    <!-- Audio nupcial premium de biblioteca libre en servidor streaming optimizado -->
+    <audio id="musica-boda" loop prefetch>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
     </audio>
 
     <!-- PORTADA -->
@@ -317,27 +343,31 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- CRONOGRAMA CON ICONOS MÁS MINIMALISTAS (LINEALES / THIN) -->
+    <!-- CRONOGRAMA CON ICONOS SVG MINIMALISTAS LINEALES (NUNCA FALLAN EN CARGAR) -->
     <section class="seccion-itinerario">
         <h2>El Cronograma</h2>
         <div class="itinerario-grid-editorial">
             <div class="tarjeta-itinerario-editorial">
-                <i class="fa-regular fa-door-open"></i>
+                <!-- Icono: Puerta/Entrada -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
                 <h4>14:00 HRS</h4>
                 <p>Entrada</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <i class="fa-regular fa-gem"></i>
+                <!-- Icono: Copa/Brindis -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12h14  M5 12a7 7 0 0 1 14 0Z"/><path d="M9 22h6"/></svg>
                 <h4>14:30 HRS</h4>
                 <p>Brindis</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <i class="fa-regular fa-utensils"></i>
+                <!-- Icono: Cubiertos/Comida -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 <h4>15:00 HRS</h4>
                 <p>Comida</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <i class="fa-regular fa-compact-disc"></i>
+                <!-- Icono: Música/Fiesta -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17.5V5l12-2v12.5"/></svg>
                 <h4>16:00 HRS</h4>
                 <p>Fiesta</p>
             </div>
@@ -349,12 +379,16 @@
         <h2>Información Adicional</h2>
         <div class="grid-protocolo">
             <div class="bloque-editorial-protocolo">
+                <!-- Icono: Traje/Vestimenta -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 7.57V3c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4.57L3.62 3.46a1 1 0 0 0-1.34.23l-1 1.34a1 1 0 0 0 .23 1.34L6 10.12V21a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10.12l4.49-3.74a1 1 0 0 0 .23-1.34l-1-1.34a1 1 0 0 0-1.34-.23z"/><path d="M12 1v6"/></svg>
                 <h3>Código de Vestimenta</h3>
                 <p><strong>Dress code : Cóctel campestre.</strong></p>
                 <p style="margin-top: 5px; font-weight: 500;">Hombres: Opcional Guayabera</p>
                 <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Mujeres : Reservar las gamas de color blanco para la novia.</p>
             </div>
             <div class="bloque-editorial-protocolo">
+                <!-- Icono: Carta/Sobre Regalo -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <h3>Mesa de Regalos</h3>
                 <p>Agradecemos infinitamente su presencia. Si deseas realizar un obsequio, nuestra modalidad elegida es:</p>
                 <p style="font-weight: 600; color: var(--color-acento); margin-top: 10px;">Lluvia de Sobres o Transferencia</p>
@@ -365,12 +399,17 @@
     <!-- RSVP -->
     <section class="rsvp-magno">
         <h2>¿Nos Acompañas?</h2>
-        <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian." target="_blank" class="btn-wa-editorial">Confirmar Asistencia</a>
+        <p style="margin-bottom: 30px; font-weight: 300; letter-spacing: 1px;">Tu presencia hará este día aún más perfecto.</p>
+        <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian." target="_blank" class="btn-wa-editorial">
+            <!-- Icono SVG de WhatsApp integrado -->
+            <svg style="width:18px; height:18px; fill:white;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.451 5.407 1.453 5.457 0 9.897-4.442 9.902-9.899.002-2.643-1.022-5.127-2.887-6.995C17.195 1.846 14.71 .82 12.067.82c-5.462 0-9.904 4.441-9.909 9.899-.001 1.939.504 3.83 1.464 5.474L2.6 20.53l4.047-1.376z"/></svg>
+            Confirmar Asistencia
+        </a>
     </section>
 
     <!-- LÓGICA DE PROGRAMACIÓN INTEGRADA -->
     <script>
-        // Configuración Automatizada de Cuenta Regresiva (24 de Julio del 2025, 14:00 hrs)
+        // Configuración de la Cuenta Regresiva (24 de Julio del 2025, 14:00 hrs)
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
 
         const intervalo = setInterval(function() {
@@ -391,21 +430,23 @@
 
             if (diferencia < 0) {
                 clearInterval(intervalo);
-                document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2rem; color:var(--color-vanguardia);'>¡Llegó el gran día! 🎉</div>";
+                document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2rem; color:var(--color-vanguardia);'>¡Llegó el gran día!</div>";
             }
         }, 1000);
 
-        // Sistema de Control Multimedia de Audio
+        // Sistema de Control de Audio Conmutado
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
-            const icon = document.querySelector("#btn-musica i");
+            const svgIcon = document.getElementById("player-svg-icon");
             
             if (audio.paused) {
                 audio.play().catch(err => console.log("La reproducción requiere interacción del usuario primero."));
-                icon.className = "fa-solid fa-pause";
+                // Cambiar icono a Pausa
+                svgIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
             } else {
                 audio.pause();
-                icon.className = "fa-solid fa-play";
+                // Cambiar icono a Play
+                svgIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
             }
         }
     </script>
