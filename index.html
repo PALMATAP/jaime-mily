@@ -39,6 +39,7 @@
             flex-direction: column;
             position: relative;
             background: #111;
+            overflow: hidden;
         }
 
         .hero-imagen {
@@ -47,11 +48,18 @@
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25)), 
                         url('https://lh3.googleusercontent.com/d/1KU303ozfyF-n_yJYZ-ID0G4oZGSDmYry') no-repeat center center/cover;
             z-index: 1;
+            transform: scale(1.02);
+            animation: entradaSuave 2s ease-out forwards;
+        }
+
+        @keyframes entradaSuave {
+            from { transform: scale(1.08); opacity: 0.8; }
+            to { transform: scale(1.02); opacity: 1; }
         }
 
         .hero-texto-contenedor {
             position: absolute;
-            bottom: 60px; left: 5%;
+            bottom: 80px; left: 5%;
             z-index: 2;
             text-align: left;
             max-width: 90%;
@@ -63,7 +71,8 @@
             letter-spacing: 8px;
             color: rgba(255, 255, 255, 0.95);
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            animation: fadin 1.2s ease-out;
         }
 
         .hero-texto-contenedor h1 {
@@ -73,7 +82,8 @@
             color: #ffffff;
             line-height: 1.1;
             letter-spacing: -1px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            text-shadow: 0 4px 30px rgba(0,0,0,0.35);
+            animation: fadin 1.5s ease-out;
         }
 
         .hero-texto-contenedor .fecha-badge {
@@ -83,11 +93,21 @@
             color: var(--texto-editorial);
             font-weight: 500;
             display: inline-block;
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 12px 40px;
+            background-color: rgba(255, 255, 255, 0.97);
+            padding: 14px 45px;
             border-left: 6px solid var(--color-acento);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             font-family: var(--fuente-editorial);
+            animation: fadinUp 1.8s ease-out;
+        }
+
+        @keyframes fadin {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadinUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- LAYOUT SPLIT (RELOJ) --- */
@@ -124,38 +144,44 @@
         }
 
         .contador-moderno {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 35px 30px;
+            padding: 40px 30px;
             width: 100%;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             text-align: center;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.05);
         }
 
         .caja-reloj h4 {
             font-family: var(--fuente-editorial);
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 400;
             color: var(--color-vanguardia);
             line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .caja-reloj:hover h4 {
+            transform: translateY(-3px);
+            color: var(--color-acento);
         }
 
         .caja-reloj p {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #444;
-            margin-top: 8px;
+            color: #555;
+            margin-top: 10px;
             font-weight: 600;
         }
 
         /* --- DESTINO Y UBICACIÓN --- */
         .seccion-destino {
-            padding: 120px 5%;
+            padding: 140px 5%;
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -167,14 +193,14 @@
         .destino-info { text-align: left; }
         .destino-info h3 {
             font-family: var(--fuente-editorial);
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--color-vanguardia);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .destino-info .hora-tag {
             font-size: 1.1rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             color: var(--color-acento);
             font-weight: 600;
             margin-bottom: 15px;
@@ -184,122 +210,181 @@
         .marco-editorial-foto {
             position: relative;
             box-shadow: 25px 25px 0px var(--color-vanguardia);
+            overflow: hidden;
+            transition: box-shadow 0.4s ease;
         }
 
-        .marco-editorial-foto img { width: 100%; display: block; }
+        .marco-editorial-foto img { 
+            width: 100%; 
+            display: block; 
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .marco-editorial-foto:hover img {
+            transform: scale(1.04);
+        }
+
+        .marco-editorial-foto:hover {
+            box-shadow: 18px 18px 0px var(--color-acento);
+        }
 
         .mapa-bloque-vanguardia {
-            width: 100%; height: 350px; margin-top: 50px; border: 1px solid #e2ded5;
+            width: 100%; height: 380px; margin-top: 50px; border: 1px solid #e2ded5;
+            filter: grayscale(10%) contrast(95%);
+            transition: filter 0.4s ease;
+        }
+        .mapa-bloque-vanguardia:hover {
+            filter: grayscale(0%) contrast(100%);
         }
 
-        /* --- CRONOGRAMA --- */
+        /* --- CRONOGRAMA REFINADO --- */
         .seccion-itinerario {
-            background: #1e2616; color: #ffffff; padding: 120px 20px;
+            background: #1e2616; color: #ffffff; padding: 140px 20px;
         }
 
         .seccion-itinerario h2 {
-            font-family: var(--fuente-editorial); font-size: 3.5rem; margin-bottom: 60px;
+            font-family: var(--fuente-editorial); font-size: 3.8rem; margin-bottom: 70px; text-align: center;
+            font-weight: 400; letter-spacing: 2px;
         }
 
         .itinerario-grid-editorial {
-            max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;
         }
 
         .tarjeta-itinerario-editorial {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 20px; text-align: center;
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            padding: 50px 25px; 
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .tarjeta-itinerario-editorial:hover {
+            background: rgba(255, 255, 255, 0.07); 
+            border-color: var(--color-acento);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
         .icon-svg {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             fill: none;
             stroke: var(--color-acento);
-            stroke-width: 1.5;
-            margin-bottom: 15px;
+            stroke-width: 1.2;
+            margin-bottom: 25px;
             display: inline-block;
+            transition: transform 0.4s ease;
+        }
+        
+        .tarjeta-itinerario-editorial:hover .icon-svg {
+            transform: scale(1.1);
         }
 
-        .tarjeta-itinerario-editorial h4 { font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; color: #ccc; }
-        .tarjeta-itinerario-editorial p { font-family: var(--fuente-editorial); font-size: 1.5rem; line-height: 1.2; }
+        .tarjeta-itinerario-editorial h4 { font-size: 0.95rem; letter-spacing: 3px; margin-bottom: 12px; color: #d5d0c5; font-weight: 400; }
+        .tarjeta-itinerario-editorial p { font-family: var(--fuente-editorial); font-size: 1.6rem; line-height: 1.2; font-weight: 300; }
 
-        /* --- PROTOCOLO --- */
-        .seccion-protocolo { padding: 120px 20px; max-width: 1000px; margin: 0 auto; }
-        .grid-protocolo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; }
+        /* --- PROTOCOLO REFINADO --- */
+        .seccion-protocolo { padding: 140px 20px; max-width: 1050px; margin: 0 auto; text-align: center; }
+        .seccion-protocolo h2 { font-family: var(--fuente-editorial); font-size: 3.5rem; margin-bottom: 50px; color: var(--color-vanguardia); }
+        .grid-protocolo { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         
         .bloque-editorial-protocolo {
-            background: var(--color-bloque-muro); padding: 50px; text-align: left; border-bottom: 4px solid var(--color-vanguardia); box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            background: var(--color-bloque-muro); padding: 60px 50px; text-align: left; 
+            border-bottom: 4px solid var(--color-vanguardia); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.4s ease;
         }
 
-        .bloque-editorial-protocolo h3 { font-family: var(--fuente-editorial); font-size: 2rem; margin-bottom: 15px; color: var(--color-vanguardia); }
+        .bloque-editorial-protocolo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-bottom-color: var(--color-acento);
+        }
+
+        .bloque-editorial-protocolo h3 { font-family: var(--fuente-editorial); font-size: 2.2rem; margin-bottom: 20px; color: var(--color-vanguardia); }
         
         .icon-protocolo-svg {
-            width: 38px;
-            height: 38px;
+            width: 42px;
+            height: 42px;
             fill: none;
             stroke: var(--color-vanguardia);
-            stroke-width: 1.5;
-            margin-bottom: 15px;
+            stroke-width: 1.2;
+            margin-bottom: 25px;
             display: block;
         }
 
         .btn-editorial {
-            display: inline-block; background: transparent; color: var(--texto-editorial); border: 1px solid var(--texto-editorial); padding: 15px 35px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; margin-top: 20px; transition: all 0.3s ease;
+            display: inline-block; background: transparent; color: var(--texto-editorial); border: 1px solid var(--texto-editorial); padding: 16px 38px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; margin-top: 25px; transition: all 0.3s ease;
         }
         .btn-editorial:hover { background: var(--color-vanguardia); color: white; border-color: var(--color-vanguardia); }
 
-        /* --- RSVP --- */
+        /* --- RSVP MAGNO --- */
         .rsvp-magno {
-            height: 70vh;
+            height: 75vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://lh3.googleusercontent.com/d/1PvPPJxu7Rr4puKCqnmeRktNDvYFbmnq3') no-repeat center center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; padding: 20px;
+            text-align: center;
         }
 
-        .rsvp-magno h2 { color: white; font-size: 4rem; margin-bottom: 15px; font-family: var(--fuente-editorial); }
+        .rsvp-magno h2 { color: white; font-size: 4.5rem; margin-bottom: 20px; font-family: var(--fuente-editorial); font-weight: 400; }
         .btn-wa-editorial {
-            background: var(--color-acento); color: white; border: none; padding: 18px 45px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; font-weight: 600; box-shadow: 0 10px 30px rgba(163, 132, 70, 0.3);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            background: var(--color-acento); color: white; border: none; padding: 20px 50px; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; font-weight: 600; box-shadow: 0 10px 30px rgba(163, 132, 70, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            display: flex; align-items: center; gap: 12px;
         }
-        .btn-wa-editorial:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(163, 132, 70, 0.4); }
+        .btn-wa-editorial:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(163, 132, 70, 0.5); }
 
-        /* REPRODUCTOR FLOTANTE */
+        /* REPRODUCTOR ULTRA-MINIMALISTA CON ONDAS EXPANSIVAS */
         .musica-editorial {
-            position: fixed; top: 30px; right: 30px; background: white; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 1000; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border: 1px solid #e2ded5;
+            position: fixed; top: 35px; right: 35px; background: white; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 1000; cursor: pointer; border: 1px solid #e2ded5;
+            box-shadow: 0 0 0 0 rgba(163, 132, 70, 0.35);
+            animation: ondasRomanticas 2s infinite cubic-bezier(0.25, 0, 0, 1);
+            transition: all 0.3s ease;
+        }
+        
+        .musica-editorial:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes ondasRomanticas {
+            0% { box-shadow: 0 0 0 0 rgba(163, 132, 70, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(163, 132, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(163, 132, 70, 0); }
         }
 
         .icon-player-svg {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             fill: var(--color-vanguardia);
+            transition: all 0.2s ease;
         }
 
         @media (max-width: 900px) {
             .seccion-split { grid-template-columns: 1fr; }
             .split-der { height: 450px; }
-            .seccion-destino { grid-template-columns: 1fr; gap: 40px; }
-            .itinerario-grid-editorial { grid-template-columns: 1fr 1fr; }
-            .grid-protocolo { grid-template-columns: 1fr; }
+            .seccion-destino { grid-template-columns: 1fr; gap: 50px; padding: 90px 5%; }
+            .itinerario-grid-editorial { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .grid-protocolo { grid-template-columns: 1fr; gap: 30px; }
             .hero-texto-contenedor h1 { font-size: 4.2rem; }
             .hero-texto-contenedor .fecha-badge { font-size: 1.8rem; padding: 10px 30px; letter-spacing: 6px; }
-            .rsvp-magno h2 { font-size: 2.8rem; }
+            .rsvp-magno h2 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- REPRODUCTOR FLOTANTE -->
-    <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica">
+    <!-- REPRODUCTOR FLOTANTE CON EFECTO DE ONDAS -->
+    <div class="musica-editorial" onclick="toggleMusica()" id="btn-musica" title="Ambientar con música">
         <svg class="icon-player-svg" id="player-svg-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </div>
     
-    <!-- Audio nupcial premium de biblioteca libre en servidor streaming optimizado -->
-    <audio id="musica-boda" loop prefetch>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+    <!-- Balada romántica en piano y cuerdas de alta definición -->
+    <audio id="musica-boda" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- PORTADA -->
+    <!-- PORTADA MAESTRA MONUMENTAL -->
     <header class="hero-editorial">
         <div class="hero-imagen"></div>
         <div class="hero-texto-contenedor">
@@ -313,7 +398,7 @@
     <section class="seccion-split">
         <div class="split-izq">
             <h2>Nuestra Unión</h2>
-            <p>Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres. Hemos preparado este espacio para compartir cada detalle con ustedes.</p>
+            <p>Nos complace invitarlos a celebrar nuestra unión en compañía de nuestros padres. Hemos preparado este espacio para compartir cada detalle con ustedes de manera muy especial.</p>
         </div>
         <div class="split-der">
             <div class="contador-moderno">
@@ -330,8 +415,8 @@
         <div class="destino-info">
             <div class="hora-tag">Los Esperamos — 14:00 HRS</div>
             <h3>Cava de Don Raúl</h3>
-            <p>Un espacio rodeado por la magia del Valle de Guadalupe, diseñado para vivir momentos inolvidables.</p>
-            <p style="font-size: 0.9rem; color: #555;">Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
+            <p>Un espacio rodeado por la magia del Valle de Guadalupe, diseñado detalladamente para vivir momentos memorables e inolvidables.</p>
+            <p style="font-size: 0.9rem; color: #555; margin-top: 10px;">Callejon de la Liebre, 22755 El Porvenir, Baja California</p>
             <a href="https://maps.app.goo.gl/hF8XrVFB8xzpU1jq6" target="_blank" class="btn-editorial">Abrir Ruta GPS</a>
         </div>
         <div class="marco-editorial-foto">
@@ -339,75 +424,75 @@
         </div>
     </section>
 
+    <!-- MAPA INTEGRADO -->
     <div class="mapa-bloque-vanguardia">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.773822187834!2d-116.6125!3d32.0345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d8ecf169f9e31d%3A0x7d6a5e62fba235c5!2sEl%20Porvenir%2C%20B.C.!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- CRONOGRAMA CON ICONOS SVG MINIMALISTAS LINEALES (NUNCA FALLAN EN CARGAR) -->
+    <!-- CRONOGRAMA REFINADO CON ICONOS SVG MINIMALISTAS LINEALES -->
     <section class="seccion-itinerario">
         <h2>El Cronograma</h2>
         <div class="itinerario-grid-editorial">
             <div class="tarjeta-itinerario-editorial">
-                <!-- Icono: Puerta/Entrada -->
-                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+                <!-- Icono Línea: Entrada / Recepción -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 <h4>14:00 HRS</h4>
                 <p>Entrada</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <!-- Icono: Copa/Brindis -->
-                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12h14  M5 12a7 7 0 0 1 14 0Z"/><path d="M9 22h6"/></svg>
+                <!-- Icono Línea: Brindis / Copas -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12h14M5 12a7 7 0 0 1 14 0Z"/><path d="M9 22h6"/></svg>
                 <h4>14:30 HRS</h4>
                 <p>Brindis</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <!-- Icono: Cubiertos/Comida -->
-                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <!-- Icono Línea: Banquete / Plato -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
                 <h4>15:00 HRS</h4>
                 <p>Comida</p>
             </div>
             <div class="tarjeta-itinerario-editorial">
-                <!-- Icono: Música/Fiesta -->
-                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17.5V5l12-2v12.5"/></svg>
+                <!-- Icono Línea: Celebración / Nota Musical -->
+                <svg class="icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="16.5" r="2.5"/></svg>
                 <h4>16:00 HRS</h4>
                 <p>Fiesta</p>
             </div>
         </div>
     </section>
 
-    <!-- PROTOCOLO -->
+    <!-- PROTOCOLO ADICIONAL -->
     <section class="seccion-protocolo">
         <h2>Información Adicional</h2>
         <div class="grid-protocolo">
             <div class="bloque-editorial-protocolo">
-                <!-- Icono: Traje/Vestimenta -->
-                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46L16 7.57V3c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v4.57L3.62 3.46a1 1 0 0 0-1.34.23l-1 1.34a1 1 0 0 0 .23 1.34L6 10.12V21a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10.12l4.49-3.74a1 1 0 0 0 .23-1.34l-1-1.34a1 1 0 0 0-1.34-.23z"/><path d="M12 1v6"/></svg>
+                <!-- Icono Línea: Esmoquin / Vestimenta -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l1 7-7 4-7-4z"/><path d="M12 14v8M8 22h8"/></svg>
                 <h3>Código de Vestimenta</h3>
                 <p><strong>Dress code : Cóctel campestre.</strong></p>
-                <p style="margin-top: 5px; font-weight: 500;">Hombres: Opcional Guayabera</p>
-                <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Mujeres : Reservar las gamas de color blanco para la novia.</p>
+                <p style="margin-top: 5px; font-weight: 500; color: var(--color-acento);">Hombres: Opcional Guayabera</p>
+                <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">Mujeres : Reservar las gamas de color blanco estrictamente para la novia.</p>
             </div>
             <div class="bloque-editorial-protocolo">
-                <!-- Icono: Carta/Sobre Regalo -->
-                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <!-- Icono Línea: Sobre Abierto -->
+                <svg class="icon-protocolo-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <h3>Mesa de Regalos</h3>
-                <p>Agradecemos infinitamente su presencia. Si deseas realizar un obsequio, nuestra modalidad elegida es:</p>
-                <p style="font-weight: 600; color: var(--color-acento); margin-top: 10px;">Lluvia de Sobres o Transferencia</p>
+                <p>Agradecemos infinitamente su grata presencia. Si desean realizar un presente, nuestra modalidad elegida es:</p>
+                <p style="font-weight: 600; color: var(--color-acento); margin-top: 10px;">Lluvia de Sobres o Transferencia Bancaria</p>
             </div>
         </div>
     </section>
 
-    <!-- RSVP -->
+    <!-- RSVP MAESTRO -->
     <section class="rsvp-magno">
         <h2>¿Nos Acompañas?</h2>
-        <p style="margin-bottom: 30px; font-weight: 300; letter-spacing: 1px;">Tu presencia hará este día aún más perfecto.</p>
+        <p style="margin-bottom: 35px; font-weight: 300; letter-spacing: 2px;">Tu valiosa presencia hará este día aún más perfecto.</p>
         <a href="https://wa.me/522228161200?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Agust%C3%ADn%20y%20Mirian." target="_blank" class="btn-wa-editorial">
-            <!-- Icono SVG de WhatsApp integrado -->
             <svg style="width:18px; height:18px; fill:white;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.498 1.451 5.407 1.453 5.457 0 9.897-4.442 9.902-9.899.002-2.643-1.022-5.127-2.887-6.995C17.195 1.846 14.71 .82 12.067.82c-5.462 0-9.904 4.441-9.909 9.899-.001 1.939.504 3.83 1.464 5.474L2.6 20.53l4.047-1.376z"/></svg>
             Confirmar Asistencia
         </a>
     </section>
 
-    <!-- LÓGICA DE PROGRAMACIÓN INTEGRADA -->
+    <!-- LOGICA SÍNCRONA INTEGRADA -->
     <script>
         // Configuración de la Cuenta Regresiva (24 de Julio del 2025, 14:00 hrs)
         const fechaBoda = new Date(2025, 6, 24, 14, 0, 0).getTime(); 
@@ -430,22 +515,22 @@
 
             if (diferencia < 0) {
                 clearInterval(intervalo);
-                document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2rem; color:var(--color-vanguardia);'>¡Llegó el gran día!</div>";
+                document.querySelector(".contador-moderno").innerHTML = "<div style='grid-column: span 4; font-family:var(--fuente-editorial); font-size:2.2rem; color:var(--color-vanguardia); letter-spacing:1px;'>¡Llegó el gran día!</div>";
             }
         }, 1000);
 
-        // Sistema de Control de Audio Conmutado
+        // Sistema de Control Multimedia Conmutado
         function toggleMusica() {
             const audio = document.getElementById("musica-boda");
             const svgIcon = document.getElementById("player-svg-icon");
             
             if (audio.paused) {
-                audio.play().catch(err => console.log("La reproducción requiere interacción del usuario primero."));
-                // Cambiar icono a Pausa
+                audio.play().catch(err => console.log("La API del navegador exige interacción del usuario previa."));
+                // Mutación a Icono de Pausa Minimalista
                 svgIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
             } else {
                 audio.pause();
-                // Cambiar icono a Play
+                // Regreso a Icono de Play
                 svgIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
             }
         }
